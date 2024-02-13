@@ -1,0 +1,23 @@
+﻿version: '3.4'
+
+services:
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Heslo1234.
+      POSTGRES_USER: Admin
+      POSTGRES_DB: RobotaNearMeDb
+    ports:
+      - '5454:5432'
+    volumes: 
+      - data:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 7080:8080
+
+volumes:
+  data:

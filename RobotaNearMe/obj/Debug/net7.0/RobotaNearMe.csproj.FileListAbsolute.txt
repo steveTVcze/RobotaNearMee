@@ -83,3 +83,6 @@ C:\Users\steve\Documents\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\PRG\Polole
 C:\Users\steve\Documents\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\PRG\PololetniProjekt\RobotaNearMe\RobotaNearMe\RobotaNearMe\obj\Debug\net7.0\RobotaNearMe.pdb
 C:\Users\steve\Documents\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\PRG\PololetniProjekt\RobotaNearMe\RobotaNearMe\RobotaNearMe\obj\Debug\net7.0\RobotaNearMe.genruntimeconfig.cache
 C:\Users\steve\Documents\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\PRG\PololetniProjekt\RobotaNearMe\RobotaNearMe\RobotaNearMe\obj\Debug\net7.0\ref\RobotaNearMe.dll
+C:\Users\steve\Documents\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\PRG\PololetniProjekt\RobotaNearMe\RobotaNearMe\RobotaNearMe\obj\Debug\net7.0\RobotaNearMe.sourcelink.json
+C:\Users\steve\Documents\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\PRG\PololetniProjekt\RobotaNearMe\RobotaNearMe\RobotaNearMe\bin\Debug\net7.0\Npgsql.dll
+C:\Users\steve\Documents\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\PRG\PololetniProjekt\RobotaNearMe\RobotaNearMe\RobotaNearMe\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

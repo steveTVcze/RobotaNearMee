@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "C6cYQ/XSe2KmI+oGcF+ajVD17OUCL+xGqmyQECxtPM27hcZeTmkxGgqkpvPPPkMiuCA5kdN/5EkhL1kSASglaw==",
+  "dgSpecHash": "u2H24nwdNPqSEGpwLbzioMivOoZFnwiNWN8+oiTkIQp8wCB+6mTLuVM5w/DCsopacKRabRUaaek721VF5kQQyw==",
   "success": true,
   "projectFilePath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,8 @@
     "C:\\Users\\steve\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\steve\\.nuget\\packages\\npgsql\\7.0.0\\npgsql.7.0.0.nupkg.sha512",
+    "C:\\Users\\steve\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\7.0.0\\npgsql.entityframeworkcore.postgresql.7.0.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
@@ -69,6 +71,7 @@
     "C:\\Users\\steve\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\system.runtime.caching\\5.0.0\\system.runtime.caching.5.0.0.nupkg.sha512",
+    "C:\\Users\\steve\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\system.security.cryptography.cng\\5.0.0\\system.security.cryptography.cng.5.0.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\system.security.cryptography.protecteddata\\5.0.0\\system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",
