@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {}
+    "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {
+    "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj",
+        "projectUniqueName": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj",
         "projectName": "RobotaNearMe.Lib",
-        "projectPath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj",
+        "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Lib\\obj\\",
+        "outputPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wVvn3bEfGRmHwp/nuvmg7XOI23JptUkQox3UfTswshk=",
+  "Hash": "gs9YRiidKaQzUV1+PLYGhhVNKRpYMOIFLF+7yfJ4XLI=",
   "Source": "RobotaNearMe.Client",
   "BasePath": "_content/RobotaNearMe.Client",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "RobotaNearMe.Client\\wwwroot",
       "Source": "RobotaNearMe.Client",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "Pattern": "**"
     }
@@ -1157,10 +1157,10 @@
       "OriginalItemSpec": "C:\\Users\\steve\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.15\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\RobotaNearMe.Client.styles.css",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\RobotaNearMe.Client.styles.css",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "RobotaNearMe.Client.styles.css",
       "AssetKind": "All",
@@ -1173,13 +1173,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\RobotaNearMe.Client.styles.css"
+      "OriginalItemSpec": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\RobotaNearMe.Client.styles.css"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\RobotaNearMe.Client.bundle.scp.css",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\RobotaNearMe.Client.bundle.scp.css",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "RobotaNearMe.Client.bundle.scp.css",
       "AssetKind": "All",
@@ -1192,13 +1192,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\RobotaNearMe.Client.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\RobotaNearMe.Client.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -1214,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1233,10 +1233,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -1252,10 +1252,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -1271,10 +1271,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -1290,10 +1290,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -1328,10 +1328,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -1347,10 +1347,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -1366,10 +1366,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -1385,10 +1385,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -1404,10 +1404,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\css\\site.css",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -1423,10 +1423,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\favicon.png",
       "SourceId": "RobotaNearMe.Client",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\wwwroot\\",
       "BasePath": "_content/RobotaNearMe.Client",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

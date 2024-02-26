@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\RobotaNearMe.Client.csproj": {}
+    "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\RobotaNearMe.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\RobotaNearMe.Client.csproj": {
+    "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\RobotaNearMe.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\RobotaNearMe.Client.csproj",
+        "projectUniqueName": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\RobotaNearMe.Client.csproj",
         "projectName": "RobotaNearMe.Client",
-        "projectPath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\RobotaNearMe.Client.csproj",
+        "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\RobotaNearMe.Client.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.Client\\obj\\",
+        "outputPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +27,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {
+                "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -40,6 +44,18 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "IronXL.Excel": {
+              "target": "Package",
+              "version": "[2024.2.25, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[7.0.16, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.14, )"
@@ -73,6 +89,14 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[7.0.11, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[8.0.3, )"
             }
           },
           "imports": [
@@ -90,6 +114,61 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj",
+        "projectName": "RobotaNearMe.Lib",
+        "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj",
+        "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

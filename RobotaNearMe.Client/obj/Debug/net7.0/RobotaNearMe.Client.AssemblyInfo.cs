@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RobotaNearMe.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5397212c1a2571a851e32169beb79a6d7afa4f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("RobotaNearMe.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RobotaNearMe.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

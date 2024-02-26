@@ -59,6 +59,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.Google/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.10": {
         "type": "package",
         "compile": {
@@ -1360,6 +1376,16 @@
             "rid": "win"
           }
         }
+      },
+      "RobotaNearMe.Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/RobotaNearMe.Lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RobotaNearMe.Lib.dll": {}
+        }
       }
     }
   },
@@ -1418,6 +1444,21 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/7.0.0": {
+      "sha512": "5gAaVbwSZ0T68adSu7hcPwfThqSjujFYRiNpi1XkGxhz26rLp/66QO93dSB9zlWTSmOJZWJUdIES9YSLR/cc8A==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.7.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.10": {
@@ -4102,17 +4143,24 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "RobotaNearMe.Lib/1.0.0": {
+      "type": "project",
+      "path": "../RobotaNearMe.Lib/RobotaNearMe.Lib.csproj",
+      "msbuildProject": "../RobotaNearMe.Lib/RobotaNearMe.Lib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Microsoft.AspNetCore.Authentication.Google >= 7.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 7.0.10",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.10",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.10",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.19.4",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.0"
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.0",
+      "RobotaNearMe.Lib >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4121,11 +4169,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.csproj",
+      "projectUniqueName": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\RobotaNearMe.csproj",
       "projectName": "RobotaNearMe",
-      "projectPath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.csproj",
+      "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\RobotaNearMe.csproj",
       "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\obj\\",
+      "outputPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4141,7 +4189,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {
+              "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -4154,6 +4206,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[7.0.0, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[7.0.10, )"

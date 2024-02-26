@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.csproj": {}
+    "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\RobotaNearMe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.csproj": {
+    "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.csproj",
-        "projectName": "RobotaNearMe",
-        "projectPath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.csproj",
+        "projectUniqueName": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj",
+        "projectName": "RobotaNearMe.Lib",
+        "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj",
         "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\obj\\",
+        "outputPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,7 +39,70 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\RobotaNearMe.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\RobotaNearMe.csproj",
+        "projectName": "RobotaNearMe",
+        "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\RobotaNearMe.csproj",
+        "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj": {
+                "projectPath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe.Lib\\RobotaNearMe.Lib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.10, )"

@@ -1,0 +1,25 @@
+﻿@page "/candidates"
+@using IronXL
+@using RobotaNearMe.Client.Data
+@using RobotaNearMe.Client.Services
+@using RobotaNearMe.Lib.Modelos
+
+
+<h3>ExportCandidates</h3>
+<button>Export data to Excel</button>
+<button>Export data to PDF</button>
+
+@inject ApiService _service
+@inject ExportToExcel _excel
+@inject ExportToPDF _pdf
+@code {
+    private string companyName = "CompanyName";
+    private void OnExportToExcel()
+    {
+        _excel.ExportAllUsers(_service, companyName);
+    }
+    private void OnExportToPDF()
+    {
+        _pdf.ExportAllUsers(_service);
+    }
+}

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "u2H24nwdNPqSEGpwLbzioMivOoZFnwiNWN8+oiTkIQp8wCB+6mTLuVM5w/DCsopacKRabRUaaek721VF5kQQyw==",
+  "dgSpecHash": "qlEu7h9nyE/f3i7BIcJeO0KXF1hNufGxz/hGfN/njXexXg4H7f8ofXYVX1TIFBuXZPbu0M4JSjiZQDe5FQVe0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\steve\\Documents\\SŠ a VOŠ Aplikované Kybernetiky 2023-2024\\PRG\\PololetniProjekt\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe\\RobotaNearMe.csproj",
+  "projectFilePath": "C:\\Users\\steve\\source\\repos\\RobotaNearMee\\RobotaNearMe\\RobotaNearMe.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\steve\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\steve\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\7.0.0\\microsoft.aspnetcore.authentication.google.7.0.0.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.10\\microsoft.aspnetcore.cryptography.internal.7.0.10.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.10\\microsoft.aspnetcore.cryptography.keyderivation.7.0.10.nupkg.sha512",
     "C:\\Users\\steve\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\7.0.10\\microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.10.nupkg.sha512",

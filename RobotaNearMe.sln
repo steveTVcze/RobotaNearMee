@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotaNearMe", "RobotaNearM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotaNearMe.Lib", "RobotaNearMe.Lib\RobotaNearMe.Lib.csproj", "{0AEB8B4E-0868-410A-BAF5-FD87E2B62D2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotaNearMe.Client", "RobotaNearMe.Client\RobotaNearMe.Client.csproj", "{62C02F18-5E0A-4B86-A68F-5A06F20CA52F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotaNearMe.Client", "RobotaNearMe.Client\RobotaNearMe.Client.csproj", "{62C02F18-5E0A-4B86-A68F-5A06F20CA52F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

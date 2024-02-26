@@ -1,0 +1,56 @@
+﻿@page "/jobs"
+@using RobotaNearMe.Lib.Modelos
+@using RobotaNearMe.Client.Services
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+<h3>Job offers</h3>
+<h4>Show job offers</h4>
+@if (_jobOffers != null)
+{
+    <select @bind="_jobFieldId">
+        @foreach (var item in _jobFieldIds)
+        {
+            <option value="@item">@item</option>
+        }
+    </select>
+}
+
+
+<div style="padding-top: 100px">
+    <h5>Filter</h5>
+    @foreach (var item in _jobOffers)
+    {
+        <div> @item.Id </div>
+        <div> @item.Title </div>
+        <div> @item.Added </div>
+    }
+    <button @onclick="OnFilter"> Import</button>
+</div>
+
+@inject ApiService _service
+@code {
+    private int _jobFieldId;
+    private List<int> _jobFieldIds = new();
+    private List<JobOffer> _jobOffers;
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        _jobOffers = _service.GetOffers().ToList();
+        // if (user.Identity != null && user.Identity.IsAuthenticated)
+        // {
+        // }
+        // else
+        // {
+
+        // }
+
+    }
+    private void OnFilter()
+    {
+        List<JobOffer> newOffers = _jobOffers.Where(x => x.JobFieldId == _jobFieldId).ToList();
+    }
+
+}

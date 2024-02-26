@@ -327,6 +327,9 @@ namespace RobotaNearMe.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("EducationId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("IdentityUserId")
                         .IsRequired()
                         .HasColumnType("text");
@@ -353,6 +356,8 @@ namespace RobotaNearMe.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EducationId");
 
                     b.HasIndex("IdentityUserId");
 
@@ -412,11 +417,19 @@ namespace RobotaNearMe.Migrations
 
             modelBuilder.Entity("RobotaNearMe.Data.User", b =>
                 {
+                    b.HasOne("RobotaNearMe.Data.Education", "Education")
+                        .WithMany()
+                        .HasForeignKey("EducationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()
                         .HasForeignKey("IdentityUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Education");
 
                     b.Navigation("IdentityUser");
                 });

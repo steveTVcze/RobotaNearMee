@@ -1,0 +1,57 @@
+﻿@page "/mailsomeone"
+@using MimeKit
+@using RobotaNearMe.Lib.Modelos
+@using RobotaNearMe.Client.Services
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h1>Mail someone</h1>
+<form asp-action="NewsletterEveryone" asp-controller="Admin">
+    <div class="card" style="color:black">
+        <div class="card-header">
+            <label>Mail someone</label>
+        </div>
+        <div class="card-body">
+            <div>Subject :</div>
+            <input type="text" @bind="subject" name="Subject" />
+            <div>Message :</div>
+            <input type="text" @bind="message" name="Message" />
+        </div>
+        <div class="card-footer">
+            <button class="btn-success" @onclick="OnSend">Mail someone</button>
+        </div>
+    </div>
+</form>
+
+@inject ApiService _service
+@code{
+    string subject = "";
+    string message = "";
+    private void OnSend(){
+        //List<User> users = _service.Get().Where(x => x.Newsletter == true).ToList();
+        MimeMessage message = new();
+        if (MailboxAddress.TryParse("hellohellimhere@seznam.cz", out var emailAddress))
+        {
+            message.To.Add((MailboxAddress)emailAddress);
+            message.Cc.Add(new MailboxAddress("KybernaJeLepsiJakDelta", "hornyondrej@seznam.cz"));
+            message.From.Add(new MailboxAddress("Improve your life today", "hornyondrej@seznam.cz"));
+
+            message.Subject = $"{subject}";
+            message.Body = new TextPart("plain")
+                {
+                    Text = $"Hello Jan Novák,\n {message}\n \n Jan Novák \n Robota near me",
+                };
+            try
+            {
+                MailKit.Net.Smtp.SmtpClient client = new();
+                //client.Credentials = new NetworkCredential("test@wolfportal.xyz", "Heslo1234.");
+                client.Connect("smtp.seznam.cz", 465, true);
+                client.Authenticate("hornyondrej@seznam.cz", "Heslo1234.");
+                client.Send(message);
+            }
+            catch
+            {
+                
+            }
+        }
+    }
+}
