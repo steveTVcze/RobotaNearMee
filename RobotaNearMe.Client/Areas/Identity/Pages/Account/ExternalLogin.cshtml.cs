@@ -17,6 +17,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using RobotaNearMe.Lib;
+using RobotaNearMe.Lib.Modelos;
+using RobotaNearMe.Client.Services;
 
 namespace RobotaNearMe.Client.Areas.Identity.Pages.Account
 {
@@ -84,6 +87,33 @@ namespace RobotaNearMe.Client.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+            public Guid Id { get; set; }
+            [Required]
+            public string UserName { get; set; }
+            [Required]
+            public string Name { get; set; }
+            [Required]
+            public string Surname { get; set; }
+            public string IdentityUserId { get; set; }
+            [Required]
+            public int MaxEduLevelId { get; set; }
+            [Required]
+            public DateTime GraduationDate { get; set; }
+            [Required]
+            public string SchoolAddress { get; set; }
+            [Required]
+            public string SchoolName { get; set; }
+            public bool Newsletter { get; set; }
+            [Required]
+            public string City { get; set; }
+            [Required]
+            public string Address { get; set; }
+            [Required]
+            public string Postal { get; set; }
+            [Required]
+            public string Phone { get; set; }
+            [Required]
+            public string Country { get; set; }
         }
         
         public IActionResult OnGet() => RedirectToPage("./Login");
@@ -164,7 +194,46 @@ namespace RobotaNearMe.Client.Areas.Identity.Pages.Account
                     {
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
 
+                        Contact contact = new();
+                        contact.Id = Guid.NewGuid();
+                        contact.Email = Input.Email;
+                        contact.Postal = Input.Postal;
+                        contact.Address = Input.Address;
+                        contact.City = Input.City;
+                        contact.Country = Input.Country;
+                        contact.Phone = Input.Phone;
+
+                        Education edu = new Education();
+                        edu.Id = Guid.NewGuid();
+                        edu.SchoolAddress = Input.SchoolAddress;
+                        edu.Id = Guid.NewGuid();
+                        edu.MaxEduLevelId = (EducationType)Input.MaxEduLevelId;
+                        edu.SchoolName = Input.SchoolName;
+                        edu.GraduationDate = Input.GraduationDate.ToUniversalTime();
+
+                        User ownUser = new User();
+                        ownUser.Id = Guid.NewGuid();
+                        ownUser.Name = Input.Name;
+                        ownUser.Surname = Input.Surname;
+                        ownUser.UserName = Input.UserName;
+                        //TODO: upravit na možnost výběru selectu admin nebo user
+                        ownUser.Role = Role.User;
+                        ownUser.EducationId = edu.Id;
+                        ownUser.ContactId = contact.Id;
+                        ownUser.LastOnline = DateTime.UtcNow;
+                        ownUser.Joined = DateTime.UtcNow;
+                        ownUser.Newsletter = true;
+
                         var userId = await _userManager.GetUserIdAsync(user);
+                        ownUser.IdentityUserId = userId;
+
+                        ApiService apiService = new ApiService();
+                        apiService.PostContact(contact);
+                        apiService.PostEdu(edu);
+                        apiService.PostUser(ownUser);
+
+
+
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                         code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                         var callbackUrl = Url.Page(

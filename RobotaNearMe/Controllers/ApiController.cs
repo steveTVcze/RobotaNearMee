@@ -30,11 +30,44 @@ namespace RobotaNearMe.Controllers
                 LastUpdated = DateTime.Now.ToUniversalTime(),
                 StillValid = true,
                 Title = "Neco",
-                LocationId = Guid.NewGuid(),
+                LocationId = LocationRegion.Pardubicky,
             };
             _service.AddJobOffer(jobOffer);
             List<JobOffer> offers = _service.GetJobOffers();
             return offers;
+        }
+        [HttpPost(Endpoints.V1.POSTUSER)]
+        public bool PostUser([FromBody] User model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            _service.AddUser(model);
+
+            return true;
+        }
+        [HttpPost(Endpoints.V1.POSTCONTACT)]
+        public bool PostContact([FromBody] Contact model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            _service.AddContact(model);
+
+            return true;
+        }
+        [HttpPost(Endpoints.V1.POSTEDU)]
+        public bool PostEdu([FromBody] Education model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            _service.AddEdu(model);
+
+            return true;
         }
         [HttpGet(Endpoints.V1.GETJOBFIELDS)]
         public List<JobField> GetJobFields()
@@ -55,6 +88,18 @@ namespace RobotaNearMe.Controllers
         {
             List<User> useros = _service.GetUsers();
             return useros;
+        }
+        [HttpGet(Endpoints.V1.GETUSERBYNAME + "/{name}")]
+        public User GetUserByName(string name)
+        {
+            User user = _service.GetUser(name);
+            return user;
+        }
+        [HttpGet(Endpoints.V1.GETCOMPANY + "/{userId}")]
+        public Company GetCompanyById(Guid userId)
+        {
+            Company cmp = _service.GetCompanyById(userId);
+            return cmp;
         }
     }
 }

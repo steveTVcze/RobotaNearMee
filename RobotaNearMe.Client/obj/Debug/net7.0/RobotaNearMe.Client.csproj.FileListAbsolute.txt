@@ -614,3 +614,5 @@ C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe.Client\bin\Debug\net7.0\i
 C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe.Client\bin\Debug\net7.0\itext.commons.dll
 C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe.Client\bin\Debug\net7.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe.Client\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe.Client\bin\Debug\net7.0\Npgsql.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe.Client\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

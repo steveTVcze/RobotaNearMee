@@ -1,0 +1,140 @@
+﻿@page "/addcompany"
+@using RobotaNearMe.Lib.Modelos
+@using RobotaNearMe.Client.Services
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h3>Add company</h3>
+
+<form @onsubmit="OnSubmit">
+    <div class="top-controls card" style="color:black">
+        <div>This move will remove you from the role User and add you to role Admin. From now on, you wont be able to see job offers. </div>
+        <div class="card-header">
+            <label>
+                Add company
+            </label>
+        </div>
+        <div class="card-body" style="display:flex; flex-direction:column;">
+            <label>
+                Name:
+            </label>
+            <input @bind="_name" style="width:350px" type="text" asp-for="Title" required />
+            <label>
+                Website:
+            </label>    
+            <input @bind="_website" style="width:350px" type="text" asp-for="Description" required />
+            <label>
+                Info:
+            </label>
+            <input @bind="_info" style="width:350px" type="text" asp-for="Description" required />
+            <label>
+                ProfilePicture:
+            </label>
+            <input @bind="_profilePicture" style="width:350px" type="text" asp-for="Description" required />
+            <div class="form-floating mb-3">
+                <input asp-for="Input.City" class="form-control" autocomplete="email" placeholder="Please enter your city." />
+                <label asp-for="Input.City" class="form-label"></label>
+                <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Postal" class="form-control" autocomplete="email" placeholder="Please enter your postal." />
+                <label asp-for="Input.Postal" class="form-label"></label>
+                <span asp-validation-for="Input.Postal" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Phone" class="form-control" autocomplete="phone" placeholder="Please enter your phone." />
+                <label asp-for="Input.Phone" class="form-label">Phone</label>
+                <span asp-validation-for="Input.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Country" class="form-control" autocomplete="phone" placeholder="Please enter your country." />
+                <label asp-for="Input.Country" class="form-label">Country</label>
+                <span asp-validation-for="Input.Country" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Address" class="form-control" autocomplete="phone" placeholder="Please enter your phone." />
+                <label asp-for="Input.Address" class="form-label">Address</label>
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
+            </div>
+
+            
+            
+            <select @bind="_jobFieldId" class="form-control">
+                @if (_jobFields != null)
+                {
+                    @foreach (var field in _jobFields)
+                    {
+                        <option value="@field.Id">@field.Field</option>
+                    }
+                }
+            </select>
+            <select @bind="_locationId" class="form-control">
+                @foreach (LocationRegion region in Enum.GetValues(typeof(LocationRegion)))
+                {
+                    <option value="@((int)region)">@region.ToString()</option>
+                }
+            </select>
+        </div>
+        <div class="card-footer">
+            <button class="btn-success" type="submit"> Add job offer </button>
+        </div>
+    </div>
+</form>
+
+@inject ApiService _service
+@code {
+    public string _name { get; set; }
+    public string _website { get; set; }
+    public string _info { get; set; }
+    public string _profilePicture { get; set; }
+
+
+    public Guid Id { get; set; }
+    public Guid ContactId { get; set; }
+    public virtual Contact Contact { get; set; }
+    public Guid UserId { get; set; }
+    public virtual User Admin { get; set; }
+
+
+    private string _title;
+    private string _description;
+    private int _jobFieldId;
+    private int _locationId;
+    private List<int> _jobFieldIds = new();
+    private List<JobField> _jobFields;
+    private Company _company;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        string mail = user.Identity.Name;
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            _jobFields = _service.GetJobFields().ToList();
+            var useros = _service.GetUserByName(mail);
+            var company = _service.GetCompanyById(useros.Id);
+        }
+        else
+        {
+
+        }
+
+    }
+    private void OnSubmit()
+    {
+        if (_company != null)
+        {
+            JobOffer jo = new();
+            jo.Added = DateTime.UtcNow;
+            jo.LastUpdated = DateTime.UtcNow;
+            jo.Title = _title;
+            jo.StillValid = true;
+            jo.CompanyId = _company.Id;
+            jo.Description = _description;
+            jo.JobFieldId = _jobFieldId;
+            jo.LocationId = (LocationRegion)_locationId;
+        }
+        //List<JobOffer> newOffers = _jobOffers.Where(x => x.JobFieldId == _jobFieldId).ToList();
+    }
+
+}

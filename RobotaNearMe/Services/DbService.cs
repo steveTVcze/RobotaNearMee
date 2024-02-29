@@ -1,4 +1,5 @@
-﻿using RobotaNearMe.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using RobotaNearMe.Data;
 
 namespace RobotaNearMe.Services
 {
@@ -31,8 +32,34 @@ namespace RobotaNearMe.Services
 
             if (jobField != null)
             {
-                //update this pls
-                _context.Add(jobField);
+                _context.JobFields.Add(jobField);
+                _context.SaveChanges();
+            }
+        }
+        public void AddUser(User user)
+        {
+
+            if (user != null)
+            {
+                _context.User.Add(user);
+                _context.SaveChanges();
+            }
+        }
+        public void AddEdu(Education model)
+        {
+
+            if (model != null)
+            {
+                _context.Educations.Add(model);
+                _context.SaveChanges();
+            }
+        }
+        public void AddContact(Contact contact)
+        {
+
+            if (contact != null)
+            {
+                _context.Contacts.Add(contact);
                 _context.SaveChanges();
             }
         }
@@ -51,6 +78,22 @@ namespace RobotaNearMe.Services
                 return new List<User>();
             }
             return _context.User.ToList();
+        }
+        public User GetUser(string name)
+        {
+            Contact contactos = _context.Contacts.FirstOrDefault(x => x.Email == name);
+            return _context.User.Include(x => x.Contact).Include(x => x.Education).FirstOrDefault(x => x.ContactId == contactos.Id);
+        }
+        public Company GetCompanyById(Guid id)
+        {
+            if (_context.Companies.FirstOrDefault(x => x.UserId == id) == null)
+            {
+                return new Company();
+            }
+            else
+            {
+                return _context.Companies.FirstOrDefault(x => x.UserId == id);
+            }
         }
     }
 }

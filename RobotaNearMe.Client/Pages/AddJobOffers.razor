@@ -16,11 +16,11 @@
             <label>
                 Title:
             </label>
-            <input style="width:350px" type="text" asp-for="Title" required />
+            <input @bind="_title" style="width:350px" type="text" asp-for="Title" required />
             <label>
                 Description:
             </label>
-            <input style="width:350px" type="text" asp-for="Description" required />
+            <input @bind="_description" style="width:350px" type="text" asp-for="Description" required />
             <select @bind="_jobFieldId" class="form-control">
                 @if (_jobFields != null)
                 {
@@ -28,6 +28,12 @@
                     {
                         <option value="@field.Id">@field.Field</option>
                     }
+                }
+            </select>
+            <select @bind="_locationId" class="form-control">
+                @foreach (LocationRegion region in Enum.GetValues(typeof(LocationRegion)))
+                {
+                    <option value="@((int)region)">@region.ToString()</option>
                 }
             </select>
         </div>
@@ -39,26 +45,45 @@
 
 @inject ApiService _service
 @code {
+    private string _title;
+    private string _description;
     private int _jobFieldId;
+    private int _locationId;
     private List<int> _jobFieldIds = new();
     private List<JobField> _jobFields;
+    private Company _company;
+
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var user = authState.User;
+        string mail = user.Identity.Name;
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            _jobFields = _service.GetJobFields().ToList();
+            var useros = _service.GetUserByName(mail);
+            var company = _service.GetCompanyById(useros.Id);
+        }
+        else
+        {
 
-        _jobFields = _service.GetJobFields().ToList();
-        // if (user.Identity != null && user.Identity.IsAuthenticated)
-        // {
-        // }
-        // else
-        // {
-
-        // }
+        }
 
     }
     private void OnSubmit()
     {
+        if (_company != null)
+        {
+            JobOffer jo = new();
+            jo.Added = DateTime.UtcNow;
+            jo.LastUpdated = DateTime.UtcNow;
+            jo.Title = _title;
+            jo.StillValid = true;
+            jo.CompanyId = _company.Id;
+            jo.Description = _description;
+            jo.JobFieldId = _jobFieldId;
+            jo.LocationId = (LocationRegion)_locationId;
+        }
         //List<JobOffer> newOffers = _jobOffers.Where(x => x.JobFieldId == _jobFieldId).ToList();
     }
 

@@ -1,0 +1,91 @@
+﻿@using RobotaNearMe.Lib.Modelos
+
+<h3>Profile</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Name:</label>
+        <p>@User.Name</p>
+    </div>
+    <div class="col-md-6">
+        <label>Surname:</label>
+        <p>@User.Surname</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Email:</label>
+        <p>@User.Contact.Email</p>
+    </div>
+    <div class="col-md-6">
+        <label>Username:</label>
+        <p>@User.UserName</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Maximalni dosazene vzdelani:</label>
+        <p>@User.Education.MaxEduLevelId</p>
+    </div>
+    <div class="col-md-6">
+        <label>City:</label>
+        <p>@User.Contact.City</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Postal:</label>
+        <p>@User.Contact.Postal</p>
+    </div>
+    <div class="col-md-6">
+        <label>Phone:</label>
+        <p>@User.Contact.Phone</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Country:</label>
+        <p>@User.Contact.Country</p>
+    </div>
+    <div class="col-md-6">
+        <label>Address:</label>
+        <p>@User.Contact.Address</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>SchoolName:</label>
+        <p>@User.Education.SchoolName</p>
+    </div>
+    <div class="col-md-6">
+        <label>SchoolAddress:</label>
+        <p>@User.Education.SchoolAddress</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>GraduationDate:</label>
+        <p>@User.Education.GraduationDate</p>
+    </div>
+    <div class="col-md-6">
+        <label>Admin or user:</label>
+        <p>@User.Role</p>
+    </div>
+</div>
+
+<button type="submit" @onclick="OnClick" class="w-100 btn btn-lg btn-primary">Update your profile</button>
+@code {
+    [Parameter] public User User { get; set; }
+    [Parameter] public Contact Contact { get; set; }
+    [Parameter] public Education Edu { get; set; }
+    private void OnClick()
+    {
+        
+    }
+}

@@ -12,9 +12,18 @@ namespace RobotaNearMe.Data
         public virtual IdentityUser IdentityUser { get; set; }
         public Guid EducationId { get; set; }
         public virtual Education Education { get; set; }
+        public Guid ContactId { get; set; }
+        public virtual Contact Contact { get; set; }
         public DateTime Joined { get; set; }
         public DateTime LastOnline { get; set; }
         public bool Newsletter { get; set; }
-
+        public Guid JobOfferId { get; set; }
+        public IEnumerable<PreviousJobs> PreviousJobs { get; set; }
+        public Role Role { get; set; }
+    }
+    public enum Role
+    {
+        User,
+        Admin
     }
 }
