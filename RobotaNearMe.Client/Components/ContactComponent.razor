@@ -1,0 +1,35 @@
+﻿@using RobotaNearMe.Lib.Modelos;
+
+<div class="form-floating mb-3">
+    <input required @bind="Contact.City" asp-for="Input.City" class="form-control" autocomplete="email" placeholder="Please enter your city." />
+    <label asp-for="Input.City" class="form-label"></label>
+    <span asp-validation-for="Input.City" class="text-danger"></span>
+</div>
+<div class="form-floating mb-3">
+    <input required @bind="Contact.Postal" asp-for="Input.Postal" class="form-control" autocomplete="email" placeholder="Please enter your postal." />
+    <label asp-for="Input.Postal" class="form-label"></label>
+    <span asp-validation-for="Input.Postal" class="text-danger"></span>
+</div>
+<div class="form-floating mb-3">
+    <input required @bind="Contact.Phone" asp-for="Input.Phone" class="form-control" autocomplete="phone" placeholder="Please enter your phone." />
+    <label asp-for="Input.Phone" class="form-label">Phone</label>
+    <span asp-validation-for="Input.Phone" class="text-danger"></span>
+</div>
+<div class="form-floating mb-3">
+    <input required @bind="Contact.Country" asp-for="Input.Country" class="form-control" autocomplete="phone" placeholder="Please enter your country." />
+    <label asp-for="Input.Country" class="form-label">Country</label>
+    <span asp-validation-for="Input.Country" class="text-danger"></span>
+</div>
+<div class="form-floating mb-3">
+    <input required @bind="Contact.Address" asp-for="Input.Address" class="form-control" autocomplete="phone" placeholder="Please enter your phone." />
+    <label asp-for="Input.Address" class="form-label">Address</label>
+    <span asp-validation-for="Input.Address" class="text-danger"></span>
+</div>
+<div class="form-floating mb-3">
+    <input required @bind="Contact.Email" asp-for="Input.Email" class="form-control" autocomplete="email" placeholder="Please enter your city." />
+    <label asp-for="Input.Email" class="form-label"></label>
+    <span asp-validation-for="Input.City" class="text-danger"></span>
+</div>
+@code {
+    [Parameter] public Contact Contact { get; set; }
+}

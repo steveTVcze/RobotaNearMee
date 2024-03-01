@@ -72,14 +72,14 @@ namespace RobotaNearMe.Controllers
         [HttpGet(Endpoints.V1.GETJOBFIELDS)]
         public List<JobField> GetJobFields()
         {
-            Random rnd = new();
-            JobField jobField = new JobField()
-            {
-                Id = rnd.Next(rnd.Next(0, 100)),
-                Description = "IT",
-                Field = "IT specialista"
-            };
-            _service.AddJobField(jobField);
+            //Random rnd = new();
+            //JobField jobField = new JobField()
+            //{
+            //    Id = rnd.Next(rnd.Next(0, 100)),
+            //    Description = "IT",
+            //    Field = "IT specialista"
+            //};
+            //_service.AddJobField(jobField);
             List<JobField> fields = _service.GetJobFields();
             return fields;
         }
