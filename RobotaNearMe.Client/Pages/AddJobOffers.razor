@@ -16,11 +16,11 @@
             <label>
                 Title:
             </label>
-            <input @bind="_title" style="width:350px" type="text" asp-for="Title" required />
+            <input @bind="JobOffer.Title" style="width:350px" type="text" asp-for="Title" required />
             <label>
                 Description:
             </label>
-            <input @bind="_description" style="width:350px" type="text" asp-for="Description" required />
+            <input @bind="JobOffer.Description" style="width:350px" type="text" asp-for="Description" required />
             <select @bind="_jobFieldId" class="form-control">
                 @if (_jobFields != null)
                 {
@@ -30,26 +30,30 @@
                     }
                 }
             </select>
-            <select @bind="_locationId" class="form-control">
+            <select @bind="JobOffer.LocationId" class="form-control">
                 @foreach (LocationRegion region in Enum.GetValues(typeof(LocationRegion)))
                 {
                     <option value="@((int)region)">@region.ToString()</option>
                 }
             </select>
+            <select @bind="JobOffer.JobTypeId" class="form-control">
+                @foreach (JobType jobtypos in Enum.GetValues(typeof(JobType)))
+                {
+                    <option value="@((int)jobtypos)">@jobtypos.ToString()</option>
+                }
+            </select>
         </div>
         <div class="card-footer">
-            <button class="btn-success" type="submit"> Add job offer </button>
+            <button class="btn-success" @onchange="OnSubmit" type="submit"> Add job offer </button>
         </div>
     </div>
 </form>
 
 @inject ApiService _service
 @code {
-    private string _title;
-    private string _description;
-    private int _jobFieldId;
-    private int _locationId;
+    private JobOffer JobOffer = new();
     private List<int> _jobFieldIds = new();
+    private int _jobFieldId;
     private List<JobField> _jobFields;
     private Company _company;
 
@@ -62,7 +66,7 @@
         {
             _jobFields = _service.GetJobFields().ToList();
             var useros = _service.GetUserByName(mail);
-            var company = _service.GetCompanyById(useros.Id);
+            _company = _service.GetCompanyById(useros.Id);
         }
         else
         {
@@ -74,15 +78,17 @@
     {
         if (_company != null)
         {
-            JobOffer jo = new();
-            jo.Added = DateTime.UtcNow;
-            jo.LastUpdated = DateTime.UtcNow;
-            jo.Title = _title;
-            jo.StillValid = true;
-            jo.CompanyId = _company.Id;
-            jo.Description = _description;
-            jo.JobFieldId = _jobFieldId;
-            jo.LocationId = (LocationRegion)_locationId;
+            //JobOffer jo = new();
+            JobOffer.Added = DateTime.UtcNow;
+            JobOffer.LastUpdated = DateTime.UtcNow;
+            JobOffer.StillValid = true;
+            JobOffer.CompanyId = _company.Id;
+            JobOffer.Benefits = "none";
+            JobOffer.Language = "English";
+            JobOffer.Salary = 40000;
+            JobOffer.Remote = true;
+            JobOffer.JobFieldId = _jobFieldId;
+            _service.PostJobOffer(JobOffer);
         }
         //List<JobOffer> newOffers = _jobOffers.Where(x => x.JobFieldId == _jobFieldId).ToList();
     }

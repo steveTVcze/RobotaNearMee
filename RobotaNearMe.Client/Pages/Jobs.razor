@@ -4,41 +4,57 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
 
-<h3>Job offers</h3>
-<h4>Show job offers</h4>
-@if (_jobOffers != null)
-{
-    <select @bind="_jobFieldId">
-        @foreach (var item in _jobFieldIds)
-        {
-            <option value="@item">@item</option>
-        }
-    </select>
-}
-
-
 <div style="padding-top: 100px">
     <h5>Filter</h5>
-    @foreach (var item in _jobOffers)
+    <label for="jobTypeFilter">Job Type:</label>
+    <select @bind="_selectedJobType" class="form-control">
+        <option value="">All</option>
+        @foreach (JobType jobType in Enum.GetValues(typeof(JobType)))
+        {
+            <option value="@jobType">@jobType.ToString()</option>
+        }
+    </select>
+
+
+    <label for="locationFilter">Location:</label>
+    <select @bind="_selectedLocation" class="form-control">
+        <option value=""> All</option>
+        @foreach (LocationRegion region in Enum.GetValues(typeof(LocationRegion)))
+        {
+            <option value="@(region)">@region.ToString()</option>
+        }
+    </select>
+
+    <button @onclick="OnFilter">Filter</button>
+
+    @foreach (var item in _filteredJobOffers ?? _jobOffers)
     {
-        <div> @item.Id </div>
         <div> @item.Title </div>
+        <div> @item.Language </div>
         <div> @item.Added </div>
+        <button @onclick="(() => OnSelect(item))">More information</button>
     }
-    <button @onclick="OnFilter"> Import</button>
 </div>
 
 @inject ApiService _service
+@inject NavigationManager NavigationManager
 @code {
     private int _jobFieldId;
     private List<int> _jobFieldIds = new();
     private List<JobOffer> _jobOffers;
+    private List<JobField> _jobFields;
+    private JobType? _selectedJobType;
+    private List<JobOffer> _filteredJobOffers;
+    private LocationRegion? _selectedLocation;
+
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var user = authState.User;
 
         _jobOffers = _service.GetOffers().ToList();
+        _jobFields = _service.GetJobFields().ToList();
+        _filteredJobOffers = new List<JobOffer>();
         // if (user.Identity != null && user.Identity.IsAuthenticated)
         // {
         // }
@@ -48,9 +64,25 @@
         // }
 
     }
+    private void OnSelect(JobOffer _selected)
+    {
+        //string modelos = System.Text.Json.JsonSerializer.Serialize(_selected);
+        NavigationManager.NavigateTo($"/jobdetails/{_selected.Id.ToString()}");
+    }
     private void OnFilter()
     {
-        List<JobOffer> newOffers = _jobOffers.Where(x => x.JobFieldId == _jobFieldId).ToList();
+        _filteredJobOffers = new List<JobOffer>();
+        foreach (var jobOffer in _jobOffers)
+        {
+            if (_selectedJobType.HasValue && _selectedJobType.Value == null && _selectedLocation == null)
+            {
+                _filteredJobOffers.Add(jobOffer);
+            }
+            else if ((!_selectedJobType.HasValue && (!_selectedLocation.HasValue || _selectedLocation == jobOffer.LocationId)) || _selectedJobType.HasValue && _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == null || !_selectedJobType.HasValue && _selectedLocation == jobOffer.LocationId || !_selectedJobType.HasValue && !_selectedLocation.HasValue || _selectedJobType.HasValue && _selectedJobType.Value == null && _selectedLocation == jobOffer.LocationId || _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == jobOffer.LocationId)
+            {
+                _filteredJobOffers.Add(jobOffer);
+            }
+        }
     }
 
 }

@@ -22,6 +22,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddScoped<ApiService>();
+builder.Services.AddScoped<ExportToPDF>();
+builder.Services.AddScoped<ExportToExcel>();
+builder.Services.AddScoped<MailService>();
 var configuration = builder.Configuration;
 
 builder.Services.AddAuthentication().AddGoogle(googleOptions =>

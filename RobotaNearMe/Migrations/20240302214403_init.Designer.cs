@@ -12,7 +12,7 @@ using RobotaNearMe.Data;
 namespace RobotaNearMe.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240228143112_init")]
+    [Migration("20240302214403_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -231,8 +231,12 @@ namespace RobotaNearMe.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("ContactId")
+                    b.Property<Guid>("ContactCompanyId")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Founded")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Info")
                         .IsRequired()
@@ -255,7 +259,7 @@ namespace RobotaNearMe.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ContactId");
+                    b.HasIndex("ContactCompanyId");
 
                     b.HasIndex("UserId");
 
@@ -295,6 +299,49 @@ namespace RobotaNearMe.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("RobotaNearMe.Data.ContactCompany", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DIC")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("IC")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Postal")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactsCompany");
                 });
 
             modelBuilder.Entity("RobotaNearMe.Data.Education", b =>
@@ -352,6 +399,10 @@ namespace RobotaNearMe.Migrations
                     b.Property<DateTime>("Added")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Benefits")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<Guid?>("CompanyId")
                         .HasColumnType("uuid");
 
@@ -362,11 +413,24 @@ namespace RobotaNearMe.Migrations
                     b.Property<int>("JobFieldId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("JobTypeId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("LastUpdated")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("LocationId")
-                        .HasColumnType("uuid");
+                    b.Property<int>("LocationId")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("Remote")
+                        .HasColumnType("boolean");
+
+                    b.Property<long>("Salary")
+                        .HasColumnType("bigint");
 
                     b.Property<bool>("StillValid")
                         .HasColumnType("boolean");
@@ -412,12 +476,6 @@ namespace RobotaNearMe.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("CompanyContact")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("CompanyName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -443,8 +501,6 @@ namespace RobotaNearMe.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
 
                     b.HasIndex("JobFieldId");
 
@@ -560,9 +616,9 @@ namespace RobotaNearMe.Migrations
 
             modelBuilder.Entity("RobotaNearMe.Data.Company", b =>
                 {
-                    b.HasOne("RobotaNearMe.Data.Contact", "Contact")
+                    b.HasOne("RobotaNearMe.Data.ContactCompany", "ContactCompany")
                         .WithMany()
-                        .HasForeignKey("ContactId")
+                        .HasForeignKey("ContactCompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -574,7 +630,7 @@ namespace RobotaNearMe.Migrations
 
                     b.Navigation("Admin");
 
-                    b.Navigation("Contact");
+                    b.Navigation("ContactCompany");
                 });
 
             modelBuilder.Entity("RobotaNearMe.Data.JobOffer", b =>
@@ -609,12 +665,6 @@ namespace RobotaNearMe.Migrations
 
             modelBuilder.Entity("RobotaNearMe.Data.PreviousJobs", b =>
                 {
-                    b.HasOne("RobotaNearMe.Data.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RobotaNearMe.Data.JobField", "JobField")
                         .WithMany()
                         .HasForeignKey("JobFieldId")
@@ -626,8 +676,6 @@ namespace RobotaNearMe.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Company");
 
                     b.Navigation("JobField");
 

@@ -10,8 +10,6 @@
         public string CompanyName { get; set; }
         public int JobFieldId { get; set; }
         public virtual JobField JobField { get; set; }
-        public Guid CompanyContact { get; set; }
-        public virtual Company Company { get; set; }
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
     }

@@ -80,6 +80,8 @@
 </div>
 
 <button type="submit" @onclick="OnClick" class="w-100 btn btn-lg btn-primary">Update your profile</button>
+
+<iframe src="@($"https://www.google.com/maps?q={User.Contact.Address} {User.Contact.Postal} {User.Contact.City}&output=embed")"></iframe>
 @code {
     [Parameter] public User User { get; set; }
     [Parameter] public Contact Contact { get; set; }

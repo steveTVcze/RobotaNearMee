@@ -13,7 +13,21 @@ namespace RobotaNearMe.Data
         public LocationRegion LocationId { get; set; }
         public bool StillValid { get; set; }
         public int JobFieldId { get; set; }
+        public long Salary {  get; set; }
+        public string Language { get; set; }
+        public JobType JobTypeId { get; set; }
+        public bool Remote {  get; set; }
+        public string Benefits { get; set; }
         public virtual JobField JobField { get; set; }
+    }
+    public enum JobType
+    {
+        Parttime,
+        Fulltime,
+        Halftime,
+        Seasonal,
+        Freelance,
+        Intership,
     }
     public enum LocationRegion
     { 

@@ -69,6 +69,25 @@ namespace RobotaNearMe.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ContactsCompany",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    City = table.Column<string>(type: "text", nullable: false),
+                    Address = table.Column<string>(type: "text", nullable: false),
+                    Postal = table.Column<string>(type: "text", nullable: false),
+                    Phone = table.Column<string>(type: "text", nullable: false),
+                    Country = table.Column<string>(type: "text", nullable: false),
+                    IC = table.Column<string>(type: "text", nullable: false),
+                    DIC = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ContactsCompany", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Educations",
                 columns: table => new
                 {
@@ -253,9 +272,14 @@ namespace RobotaNearMe.Migrations
                     CompanyId = table.Column<Guid>(type: "uuid", nullable: true),
                     Title = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
-                    LocationId = table.Column<Guid>(type: "uuid", nullable: false),
+                    LocationId = table.Column<int>(type: "integer", nullable: false),
                     StillValid = table.Column<bool>(type: "boolean", nullable: false),
-                    JobFieldId = table.Column<int>(type: "integer", nullable: false)
+                    JobFieldId = table.Column<int>(type: "integer", nullable: false),
+                    Salary = table.Column<long>(type: "bigint", nullable: false),
+                    Language = table.Column<string>(type: "text", nullable: false),
+                    JobTypeId = table.Column<int>(type: "integer", nullable: false),
+                    Remote = table.Column<bool>(type: "boolean", nullable: false),
+                    Benefits = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -273,24 +297,55 @@ namespace RobotaNearMe.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    ContactId = table.Column<Guid>(type: "uuid", nullable: false),
+                    ContactCompanyId = table.Column<Guid>(type: "uuid", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     Website = table.Column<string>(type: "text", nullable: false),
                     Info = table.Column<string>(type: "text", nullable: false),
-                    ProfilePicture = table.Column<string>(type: "text", nullable: false)
+                    ProfilePicture = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Founded = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Companies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Companies_Contacts_ContactId",
-                        column: x => x.ContactId,
-                        principalTable: "Contacts",
+                        name: "FK_Companies_ContactsCompany_ContactCompanyId",
+                        column: x => x.ContactCompanyId,
+                        principalTable: "ContactsCompany",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Companies_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PreviousJobs",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    Started = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Ended = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    CompanyName = table.Column<string>(type: "text", nullable: false),
+                    JobFieldId = table.Column<int>(type: "integer", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PreviousJobs", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PreviousJobs_JobFields_JobFieldId",
+                        column: x => x.JobFieldId,
+                        principalTable: "JobFields",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PreviousJobs_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
@@ -317,44 +372,6 @@ namespace RobotaNearMe.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_OfferInUser_User_UserId",
-                        column: x => x.UserId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PreviousJobs",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false),
-                    Started = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Ended = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    CompanyName = table.Column<string>(type: "text", nullable: false),
-                    JobFieldId = table.Column<int>(type: "integer", nullable: false),
-                    CompanyContact = table.Column<Guid>(type: "uuid", nullable: false),
-                    CompanyId = table.Column<Guid>(type: "uuid", nullable: false),
-                    UserId = table.Column<Guid>(type: "uuid", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PreviousJobs", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PreviousJobs_Companies_CompanyId",
-                        column: x => x.CompanyId,
-                        principalTable: "Companies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PreviousJobs_JobFields_JobFieldId",
-                        column: x => x.JobFieldId,
-                        principalTable: "JobFields",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PreviousJobs_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
@@ -399,9 +416,9 @@ namespace RobotaNearMe.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Companies_ContactId",
+                name: "IX_Companies_ContactCompanyId",
                 table: "Companies",
-                column: "ContactId");
+                column: "ContactCompanyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Companies_UserId",
@@ -422,11 +439,6 @@ namespace RobotaNearMe.Migrations
                 name: "IX_OfferInUser_UserId",
                 table: "OfferInUser",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PreviousJobs_CompanyId",
-                table: "PreviousJobs",
-                column: "CompanyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PreviousJobs_JobFieldId",
@@ -473,6 +485,9 @@ namespace RobotaNearMe.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Companies");
+
+            migrationBuilder.DropTable(
                 name: "OfferInUser");
 
             migrationBuilder.DropTable(
@@ -482,16 +497,16 @@ namespace RobotaNearMe.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "ContactsCompany");
+
+            migrationBuilder.DropTable(
                 name: "JobOffers");
 
             migrationBuilder.DropTable(
-                name: "Companies");
+                name: "User");
 
             migrationBuilder.DropTable(
                 name: "JobFields");
-
-            migrationBuilder.DropTable(
-                name: "User");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

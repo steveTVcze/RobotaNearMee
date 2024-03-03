@@ -44,6 +44,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "BouncyCastle.NetCore": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
             "IronXL.Excel": {
               "target": "Package",
               "version": "[2024.2.25, )"
@@ -99,6 +103,10 @@
               "version": "[7.0.11, )"
             },
             "itext7": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "itext7.bouncy-castle-fips-adapter": {
               "target": "Package",
               "version": "[8.0.3, )"
             }

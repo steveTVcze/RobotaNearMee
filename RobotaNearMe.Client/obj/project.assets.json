@@ -72,6 +72,19 @@
           }
         }
       },
+      "BouncyCastle.NetCore/2.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -824,6 +837,26 @@
           }
         }
       },
+      "itext.bouncy-castle-fips-adapter/8.0.3": {
+        "type": "package",
+        "dependencies": {
+          "itext.commons": "8.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/bc-fips-1.0.2.dll": {},
+          "lib/netstandard2.0/bcpkix-fips-1.0.2.dll": {},
+          "lib/netstandard2.0/itext.bouncy-castle-fips-adapter.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/bc-fips-1.0.2.dll": {},
+          "lib/netstandard2.0/bcpkix-fips-1.0.2.dll": {},
+          "lib/netstandard2.0/itext.bouncy-castle-fips-adapter.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "itext.commons/8.0.3": {
         "type": "package",
         "dependencies": {
@@ -845,6 +878,12 @@
         "type": "package",
         "dependencies": {
           "itext": "8.0.3"
+        }
+      },
+      "itext7.bouncy-castle-fips-adapter/8.0.3": {
+        "type": "package",
+        "dependencies": {
+          "itext.bouncy-castle-fips-adapter": "8.0.3"
         }
       },
       "MailKit/4.3.0": {
@@ -4967,6 +5006,21 @@
         "packageIcon.png"
       ]
     },
+    "BouncyCastle.NetCore/2.2.1": {
+      "sha512": "yfWn8JYPc4rkeM2kcsCqFVFOvwCuuQvIieGtQWcjoWxOioeznXQB3M/GmHgbCWbJjc8ycrwGhZaZPiasifYi4A==",
+      "type": "package",
+      "path": "bouncycastle.netcore/2.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bouncycastle.netcore.2.2.1.nupkg.sha512",
+        "bouncycastle.netcore.nuspec",
+        "lib/net45/BouncyCastle.Crypto.dll",
+        "lib/net45/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml"
+      ]
+    },
     "Humanizer/2.14.1": {
       "sha512": "/FUTD3cEceAAmJSCPN9+J+VhGwmL/C12jvwlyM1DFXShEMsBzvLzLqSrJ2rb+k/W2znKw7JyflZgZpyE+tI7lA==",
       "type": "package",
@@ -5835,6 +5889,22 @@
         "lib/netstandard2.0/itext.svg.xml"
       ]
     },
+    "itext.bouncy-castle-fips-adapter/8.0.3": {
+      "sha512": "jtqvPSixFtNnwkuC7gvP7/9qtZvHZhuK18hPT0FT2rlZQvoinYJfxdQlV6aqeTiZyjR62O7cGR52wzv2ZQfHNA==",
+      "type": "package",
+      "path": "itext.bouncy-castle-fips-adapter/8.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ITSC-avatar.png",
+        "itext.bouncy-castle-fips-adapter.8.0.3.nupkg.sha512",
+        "itext.bouncy-castle-fips-adapter.nuspec",
+        "lib/netstandard2.0/bc-fips-1.0.2.dll",
+        "lib/netstandard2.0/bcpkix-fips-1.0.2.dll",
+        "lib/netstandard2.0/itext.bouncy-castle-fips-adapter.dll",
+        "lib/netstandard2.0/itext.bouncy-castle-fips-adapter.xml"
+      ]
+    },
     "itext.commons/8.0.3": {
       "sha512": "Nd6K3z1UA+OBonOUnQ5odUjvleTZfSH4rdMQFhPu0Y29JN/iKsCAznpw6vlFvoLa7cqP+/5bQOUlvVJaf/bK6A==",
       "type": "package",
@@ -5863,6 +5933,20 @@
         "gnu-agpl-v3.0.md",
         "itext7.8.0.3.nupkg.sha512",
         "itext7.nuspec"
+      ]
+    },
+    "itext7.bouncy-castle-fips-adapter/8.0.3": {
+      "sha512": "bkUJGVeAOjABRY/tORq+obf981JS7towf6l7EgcdtXMCdHaNwEm5NLOZNeW6FqDF6TcYl3rHXAuHJoG6uEn/ZQ==",
+      "type": "package",
+      "path": "itext7.bouncy-castle-fips-adapter/8.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ITSC-avatar.png",
+        "LICENSE.md",
+        "gnu-agpl-v3.0.md",
+        "itext7.bouncy-castle-fips-adapter.8.0.3.nupkg.sha512",
+        "itext7.bouncy-castle-fips-adapter.nuspec"
       ]
     },
     "MailKit/4.3.0": {
@@ -13605,6 +13689,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "BouncyCastle.NetCore >= 2.2.1",
       "IronXL.Excel >= 2024.2.25",
       "MailKit >= 4.3.0",
       "Microsoft.AspNetCore.Authentication.Google >= 7.0.16",
@@ -13619,7 +13704,8 @@
       "MimeKit >= 4.3.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.11",
       "RobotaNearMe.Lib >= 1.0.0",
-      "itext7 >= 8.0.3"
+      "itext7 >= 8.0.3",
+      "itext7.bouncy-castle-fips-adapter >= 8.0.3"
     ]
   },
   "packageFolders": {
@@ -13665,6 +13751,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "BouncyCastle.NetCore": {
+            "target": "Package",
+            "version": "[2.2.1, )"
+          },
           "IronXL.Excel": {
             "target": "Package",
             "version": "[2024.2.25, )"
@@ -13720,6 +13810,10 @@
             "version": "[7.0.11, )"
           },
           "itext7": {
+            "target": "Package",
+            "version": "[8.0.3, )"
+          },
+          "itext7.bouncy-castle-fips-adapter": {
             "target": "Package",
             "version": "[8.0.3, )"
           }

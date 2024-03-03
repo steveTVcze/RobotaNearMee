@@ -98,6 +98,24 @@ namespace RobotaNearMe.Client.Services
                 return new Company();
             }
         }
+        public CompanyReal GetCompanyByCompanyId(Guid companyId)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+
+                var users = _httpClient.GetFromJsonAsync<CompanyReal>(Endpoints.V1.GETCOMPANYBYCOMPANYID + $"/{companyId}").Result;
+                return users;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return new CompanyReal();
+            }
+        }
         public bool PostUser(User model)
         {
             if (_httpClient.BaseAddress == null)
@@ -107,6 +125,74 @@ namespace RobotaNearMe.Client.Services
             try
             {
                 var user = _httpClient.PostAsJsonAsync<User>(Endpoints.V1.POSTUSER, model).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PostJobOffer(JobOffer model)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PostAsJsonAsync<JobOffer>(Endpoints.V1.POSTJOBOFFER, model).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PostOfferInUser(OfferInUser model)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PostAsJsonAsync<OfferInUser>(Endpoints.V1.POSTOFFERINUSER, model).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PostCompany(Company model)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PostAsJsonAsync<Company>(Endpoints.V1.POSTCOMPANY, model).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PostCompanyContact(ContactCompany model)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PostAsJsonAsync<ContactCompany>(Endpoints.V1.POSTCOMPANYCONTACT, model).Result;
                 return true;
             }
             catch (HttpRequestException exception)

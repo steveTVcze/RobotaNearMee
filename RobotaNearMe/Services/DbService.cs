@@ -1,14 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RobotaNearMe.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace RobotaNearMe.Services
 {
     public class DbService
     {
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _context;
-        public DbService(ApplicationDbContext context)
+        public DbService(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public List<JobOffer> GetJobOffers()
         {
@@ -25,6 +28,37 @@ namespace RobotaNearMe.Services
             {
                 _context.JobOffers.Add(jo);
                 _context.SaveChanges();
+            }
+        }
+        public async Task AddCompany(Company co)
+        {
+            try
+            {
+                var id = co.Admin.IdentityUserId;
+                var useros = await _userManager.FindByIdAsync(id);
+                var smth = "";
+                if (useros != null)
+                {
+                    string userRole = "User";
+                    string roleName = "Admin";
+
+                    await _userManager.RemoveFromRoleAsync(useros, userRole);
+                    await _userManager.AddToRoleAsync(useros, roleName);
+                    co.Admin = null;
+                    co.Founded = "1999";
+                    co.ContactCompany = null;
+
+                    // Add the company to the DbSet asynchronously
+                    _context.Companies.Add(co);
+
+                    // Save changes asynchronously
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception
+                Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
         public void AddJobField(JobField jobField)
@@ -45,6 +79,15 @@ namespace RobotaNearMe.Services
                 _context.SaveChanges();
             }
         }
+        public void AddOfferInUser(OfferInUser offinuser)
+        {
+
+            if (offinuser != null)
+            {
+                _context.OfferInUser.Add(offinuser);
+                _context.SaveChanges();
+            }
+        }
         public void AddEdu(Education model)
         {
 
@@ -60,6 +103,15 @@ namespace RobotaNearMe.Services
             if (contact != null)
             {
                 _context.Contacts.Add(contact);
+                _context.SaveChanges();
+            }
+        }
+        public void AddCompanyContact(ContactCompany contact)
+        {
+
+            if (contact != null)
+            {
+                _context.ContactsCompany.Add(contact);
                 _context.SaveChanges();
             }
         }
@@ -92,8 +144,20 @@ namespace RobotaNearMe.Services
             }
             else
             {
-                return _context.Companies.FirstOrDefault(x => x.UserId == id);
+                return _context.Companies.Include(x =>x.ContactCompany).Include(x => x.Admin).FirstOrDefault(x => x.UserId == id);
             }
         }
+        public Company GetCompanyByCompanyId(Guid companyId)
+        {
+            if (_context.Companies.FirstOrDefault(x => x.Id == companyId) == null)
+            {
+                return new Company();
+            }
+            else
+            {
+                return _context.Companies.Include(x => x.ContactCompany).Include(x => x.Admin).FirstOrDefault(x => x.Id == companyId);
+            }
+        }
+
     }
 }
