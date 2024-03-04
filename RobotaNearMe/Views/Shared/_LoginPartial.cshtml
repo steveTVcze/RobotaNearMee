@@ -1,6 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using RobotaNearMe.Services
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+@inject DbService service
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
@@ -14,13 +16,36 @@
         </form>
     </li>
 }
-else
+else 
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
+        try
+        {
+            var usersWithRoleId3 = service.GetRolesByIdentity().Where(ur => ur.RoleId == "3").ToList();
+
+            if (usersWithRoleId3.Any())
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                </li>
+            }
+        }
+        catch (Exception ex)
+        {
+            <li class="nav-item">
+                <span class="text-danger">Error fetching user roles: @ex.Message</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        }
 }
 </ul>

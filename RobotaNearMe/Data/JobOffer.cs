@@ -19,6 +19,7 @@ namespace RobotaNearMe.Data
         public bool Remote {  get; set; }
         public string Benefits { get; set; }
         public virtual JobField JobField { get; set; }
+        public int IntrestedInIt { get; set; }
     }
     public enum JobType
     {

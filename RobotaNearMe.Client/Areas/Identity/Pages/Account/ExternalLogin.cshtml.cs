@@ -190,6 +190,8 @@ namespace RobotaNearMe.Client.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     result = await _userManager.AddLoginAsync(user, info);
+                    string roleName = "User";
+                    await _userManager.AddToRoleAsync(user, roleName);
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);

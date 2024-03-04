@@ -64,7 +64,21 @@ namespace RobotaNearMe.Controllers
             {
                 return false;
             }
+            JobOffer jo = _service.GetJobOffers().Where(x => x.Id == model.JobOfferId).FirstOrDefault();
+            jo.IntrestedInIt += 1;
+            _service.UpdateOffer(jo);
             _service.AddOfferInUser(model);
+
+            return true;
+        }
+        [HttpPut(Endpoints.V1.PUTFILE)]
+        public bool PutFileForUser([FromBody] FileTable model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            _service.UpdateFileForUser(model);
 
             return true;
         }
@@ -124,6 +138,18 @@ namespace RobotaNearMe.Controllers
 
             return true;
         }
+        [HttpPost(Endpoints.V1.POSTFILE)]
+        public async Task<bool> PostFileTable([FromBody] FileTable model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+
+            await _service.AddFile(model);
+
+            return true;
+        }
 
         [HttpGet(Endpoints.V1.GETJOBFIELDS)]
         public List<JobField> GetJobFields()
@@ -157,11 +183,23 @@ namespace RobotaNearMe.Controllers
             Company cmp = _service.GetCompanyById(userId);
             return cmp;
         }
+        [HttpGet(Endpoints.V1.GETFILEFORUSER + "/{userId}")]
+        public FileTable GetFileForUser(Guid userId)
+        {
+            FileTable cmp = _service.GetFileForUser(userId);
+            return cmp;
+        }
         [HttpGet(Endpoints.V1.GETCOMPANYBYCOMPANYID + "/{companyId}")]
         public Company GetCompanyByCompanyId(Guid companyId)
         {
             Company cmp = _service.GetCompanyByCompanyId(companyId);
             return cmp;
+        }
+        [HttpGet(Endpoints.V1.GETOFFERSINUSER + "/{offerId}")]
+        public List<OfferInUser> GetOffersInUser(Guid offerId)
+        {
+            List<OfferInUser> offerosinUser = _service.GetOffersInUser(offerId);
+            return offerosinUser;
         }
     }
 }

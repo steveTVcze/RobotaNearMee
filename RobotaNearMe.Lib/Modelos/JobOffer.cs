@@ -18,6 +18,7 @@ namespace RobotaNearMe.Lib.Modelos
         public bool Remote { get; set; }
         public string Benefits { get; set; }
         public virtual JobField JobField { get; set; }
+        public int IntrestedInIt { get; set; }
     }
     public enum JobType
     {
@@ -30,13 +31,19 @@ namespace RobotaNearMe.Lib.Modelos
     }
     public enum LocationRegion
     {
+        HlavniMestoPraha,
+        Jihocesky,
+        Jihomoravsky,
+        Karlovarsky,
+        Kralovehradecky,
         Liberecky,
-        Hradecky,
+        Moravskoslezsky,
+        Olomoucky,
         Pardubicky,
-        Praha,
-        Brno,
-        Usti,
-        KarlovyVary,
-        Plzen
+        Plzensky,
+        Stredocesky,
+        Ustecky,
+        Vysocina,
+        Zlinsky 
     }
 }

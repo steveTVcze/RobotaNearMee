@@ -14,23 +14,33 @@
             </label>
         </div>
         <div class="card-body" style="display:flex; flex-direction:column;">
-            <label>
-                Name:
-            </label>
-            <input @bind="_company.Name" style="width:350px" type="text" asp-for="Title" required />
-            <label>
-                Website:
-            </label>    
-            <input @bind="_company.Website" style="width:350px" type="text" asp-for="Description" required />
-            <label>
-                Info:
-            </label>
-            <input @bind="_company.Info" style="width:350px" type="text" asp-for="Description" required />
-            <label>
-                ProfilePicture:
-            </label>
-            <input @bind="_company.ProfilePicture" style="width:350px" type="text" asp-for="Description" required />
+            <div class="form-floating mb-3">
+                <input required @bind="_company.Name" class="form-control" placeholder="Please enter your ic." />
+                <label class="form-label">Company name</label>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input required @bind="_company.Website" class="form-control" placeholder="Please enter your ic." />
+                <label class="form-label">company website</label>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea @bind="_company.Info" style="height: 150px;" class="form-control" placeholder="Please enter your ic."></textarea>
+                <label class="form-label">Company info</label>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input required @bind="_company.ProfilePicture" class="form-control" placeholder="Please enter your ic." />
+                <label class="form-label">Company profile picture</label>
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input required @bind="_company.Founded" class="form-control"  placeholder="Please enter your ic." />
+                <label class="form-label">Founded in:</label>
+                <span class="text-danger"></span>
+            </div>
 
+            
 
            <RobotaNearMe.Client.Components.ContactComponent Contact="Contact"></RobotaNearMe.Client.Components.ContactComponent>
             
@@ -51,7 +61,7 @@
             </select> *@
         </div>
         <div class="card-footer">
-            <button class="btn-success" type="submit"> Add job offer </button>
+            <button class="btn-success" type="submit"> Add company </button>
         </div>
     </div>
 </form>
@@ -72,7 +82,7 @@
     private int _locationId;
     private List<int> _jobFieldIds = new();
     private List<JobField> _jobFields;
-    private Company _company = new();
+    private CompanyReal _company = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -116,7 +126,6 @@
             c.ContactCompanyId = s.Id;
             c.Id = Guid.NewGuid();
             c.UserId = Admin.Id;
-            
             _service.PostCompanyContact(s);
             _service.PostCompany(c);
             

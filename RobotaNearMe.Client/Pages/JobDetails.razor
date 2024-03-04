@@ -16,6 +16,7 @@
     <div>StillValid: @_offer.StillValid</div>
     <div>LastUpdated: @_offer.LastUpdated</div>
     <div>Location: @_offer.LocationId</div>
+    <div>Number of people who already answered: @_offer.IntrestedInIt</div>
 
     <h3>Company contact</h3>
     <div>Email: @_company.ContactCompany.Email</div>
@@ -28,12 +29,13 @@
     <div>DIC: @_company.ContactCompany.DIC</div>
 
     <h3>Company details</h3>
+    <img src="@_company.ProfilePicture" height="100" width="100"/>
     <div>Company Name: @_company.Name</div>
     <div>Info: @_company.Info</div>
-    <div>Company ProfilePicture: @_company.ProfilePicture</div>
-    <div>Company details: @_company.Website</div>
+    <div>Company web: <a target="_blank" href="@_company.Website">@_company.Name</a></div>
     <div>Company admin: @_company.Admin.Name @_company.Admin.Surname</div>
     <div>Company details: @_company.Name</div> 
+    <div>Founded: @_company.Founded</div>
     <div>
         <h4> Share this job offer!</h4>
         <a href="javascript:window.print();"><span>Print this job offer</span></a>

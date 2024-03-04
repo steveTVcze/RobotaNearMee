@@ -17,8 +17,6 @@ namespace RobotaNearMe.Data
         public DateTime Joined { get; set; }
         public DateTime LastOnline { get; set; }
         public bool Newsletter { get; set; }
-        public Guid JobOfferId { get; set; }
-        public IEnumerable<PreviousJobs> PreviousJobs { get; set; }
         public Role Role { get; set; }
     }
     public enum Role

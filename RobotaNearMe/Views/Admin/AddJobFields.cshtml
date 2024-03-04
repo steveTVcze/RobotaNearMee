@@ -1,0 +1,29 @@
+﻿@model RobotaNearMe.Data.JobField
+
+<form asp-action="AddJobField" asp-controller="Admin">
+    <div class="top-controls card" style="color:black">
+        <div class="card-header">
+            <label>
+                Add job field
+            </label>
+        </div>
+        <div class="card-body" style="display:flex; flex-direction:column;">
+            <label>
+                Name:
+            </label>
+
+            <input style="width:380px" type="text" asp-for="Field" required />
+            
+            <label>
+                Description:
+            
+            </label>
+            <input style="width:380px" type="text" asp-for="Description" required />
+        </div>
+        <div class="card-footer">
+            <button class="btn-success" type="submit"> Add job field </button>
+        </div>
+
+
+    </div>
+</form>

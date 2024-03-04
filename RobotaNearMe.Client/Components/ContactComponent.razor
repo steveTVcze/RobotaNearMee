@@ -1,13 +1,13 @@
 ﻿@using RobotaNearMe.Lib.Modelos;
 
 <div class="form-floating mb-3">
-    <input required @bind="Contact.City" asp-for="Input.City" class="form-control" autocomplete="email" placeholder="Please enter your city." />
-    <label asp-for="Input.City" class="form-label"></label>
+    <input required @bind="Contact.City" asp-for="Input.City" class="form-control" autocomplete="phone" placeholder="Please enter your city." />
+    <label asp-for="Input.City" class="form-label">City</label>
     <span asp-validation-for="Input.City" class="text-danger"></span>
 </div>
 <div class="form-floating mb-3">
-    <input required @bind="Contact.Postal" asp-for="Input.Postal" class="form-control" autocomplete="email" placeholder="Please enter your postal." />
-    <label asp-for="Input.Postal" class="form-label"></label>
+    <input required @bind="Contact.Postal" asp-for="Input.Postal" class="form-control" autocomplete="phone" placeholder="Please enter your postal." />
+    <label asp-for="Input.Postal" class="form-label">Postal</label>
     <span asp-validation-for="Input.Postal" class="text-danger"></span>
 </div>
 <div class="form-floating mb-3">
@@ -21,14 +21,24 @@
     <span asp-validation-for="Input.Country" class="text-danger"></span>
 </div>
 <div class="form-floating mb-3">
-    <input required @bind="Contact.Address" asp-for="Input.Address" class="form-control" autocomplete="phone" placeholder="Please enter your phone." />
+    <input required @bind="Contact.Address" asp-for="Input.Address" class="form-control" autocomplete="phone" placeholder="Please enter your Address." />
     <label asp-for="Input.Address" class="form-label">Address</label>
     <span asp-validation-for="Input.Address" class="text-danger"></span>
 </div>
 <div class="form-floating mb-3">
-    <input required @bind="Contact.Email" asp-for="Input.Email" class="form-control" autocomplete="email" placeholder="Please enter your city." />
-    <label asp-for="Input.Email" class="form-label"></label>
+    <input required @bind="Contact.Email" asp-for="Input.Email" class="form-control" autocomplete="phone" placeholder="Please enter your email." />
+    <label asp-for="Input.Email" class="form-label">Email</label>
     <span asp-validation-for="Input.City" class="text-danger"></span>
+</div>
+<div class="form-floating mb-3">
+    <input required @bind="Contact.DIC" asp-for="Input.DIC" class="form-control" autocomplete="phone" placeholder="Please enter your dic." />
+    <label asp-for="Input.DIC" class="form-label">DIC</label>
+    <span asp-validation-for="Input.DIC" class="text-danger"></span>
+</div>
+<div class="form-floating mb-3">
+    <input required @bind="Contact.IC" asp-for="Input.IC" class="form-control" autocomplete="phone" placeholder="Please enter your ic." />
+    <label asp-for="Input.IC" class="form-label">IC</label>
+    <span asp-validation-for="Input.IC" class="text-danger"></span>
 </div>
 @code {
     [Parameter] public ContactCompany Contact { get; set; }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RobotaNearMe.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace RobotaNearMe.Services
 {
@@ -30,6 +31,34 @@ namespace RobotaNearMe.Services
                 _context.SaveChanges();
             }
         }
+        public IEnumerable<IdentityUserRole<string>> GetRolesByIdentity()
+        {
+            try
+            {
+                return _context.UserRoles.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+        //public async Task AddToRole(IdentityUser useros)
+        //{
+        //    try
+        //    {
+        //        //var id = co.Admin.IdentityUserId;
+        //        //var useros = await _userManager.FindByIdAsync(id);
+        //        string roleName = "SuperMegaAdmin";
+        //        await _userManager.AddToRoleAsync(useros, roleName);
+                
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Log or handle the exception
+        //        Console.WriteLine($"An error occurred: {ex.Message}");
+        //    }
+        //}
         public async Task AddCompany(Company co)
         {
             try
@@ -61,6 +90,11 @@ namespace RobotaNearMe.Services
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
+        public async Task AddFile(FileTable fileTable)
+        {
+            _context.Files.Add(fileTable);
+            await _context.SaveChangesAsync();
+        }
         public void AddJobField(JobField jobField)
         {
 
@@ -85,6 +119,24 @@ namespace RobotaNearMe.Services
             if (offinuser != null)
             {
                 _context.OfferInUser.Add(offinuser);
+                _context.SaveChanges();
+            }
+        }
+        public void UpdateOffer(JobOffer offer)
+        {
+
+            if (offer != null)
+            {
+                _context.JobOffers.Update(offer);
+                _context.SaveChanges();
+            }
+        }
+        public void UpdateFileForUser(FileTable fileTable)
+        {
+
+            if (fileTable != null)
+            {
+                _context.Files.Update(fileTable);
                 _context.SaveChanges();
             }
         }
@@ -123,6 +175,11 @@ namespace RobotaNearMe.Services
             }
             return _context.JobFields.ToList();
         }
+        public int GetHighestJobFieldId()
+        {
+            var highestId = _context.JobFields.Max(j => (int?)j.Id) ?? 0;
+            return highestId;
+        }
         public List<User> GetUsers()
         {
             if (_context.User.ToList() == null)
@@ -147,6 +204,17 @@ namespace RobotaNearMe.Services
                 return _context.Companies.Include(x =>x.ContactCompany).Include(x => x.Admin).FirstOrDefault(x => x.UserId == id);
             }
         }
+        public FileTable GetFileForUser(Guid id)
+        {
+            if (_context.Files.FirstOrDefault(x => x.UserId == id) == null)
+            {
+                return new FileTable();
+            }
+            else
+            {
+                return _context.Files.FirstOrDefault(x => x.UserId == id);
+            }
+        }
         public Company GetCompanyByCompanyId(Guid companyId)
         {
             if (_context.Companies.FirstOrDefault(x => x.Id == companyId) == null)
@@ -156,6 +224,17 @@ namespace RobotaNearMe.Services
             else
             {
                 return _context.Companies.Include(x => x.ContactCompany).Include(x => x.Admin).FirstOrDefault(x => x.Id == companyId);
+            }
+        }
+        public List<OfferInUser> GetOffersInUser(Guid offerId)
+        {
+            if (_context.Companies.FirstOrDefault(x => x.Id == offerId) == null)
+            {
+                return new List<OfferInUser>();
+            }
+            else
+            {
+                return _context.OfferInUser.Include(x => x.User.Contact).Include(x => x.User.Education).Include(x => x.User).Where(x => x.JobOfferId == offerId).ToList();
             }
         }
 

@@ -26,6 +26,24 @@ namespace RobotaNearMe.Client.Services
                 return new List<JobOffer>();
             }
         }
+        public IEnumerable<OfferInUser> GetOffersInUsers(Guid OfferId)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+
+                var offers = _httpClient.GetFromJsonAsync<IEnumerable<OfferInUser>>(Endpoints.V1.GETOFFERSINUSER + $"/{OfferId}").Result;
+                return offers;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return new List<OfferInUser>();
+            }
+        }
         public IEnumerable<JobField> GetJobFields()
         {
             if (_httpClient.BaseAddress == null)
@@ -98,6 +116,24 @@ namespace RobotaNearMe.Client.Services
                 return new Company();
             }
         }
+        public FileTable GetFileForUser(Guid userId)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+
+                var users = _httpClient.GetFromJsonAsync<FileTable>(Endpoints.V1.GETFILEFORUSER + $"/{userId}").Result;
+                return users;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return new FileTable();
+            }
+        }
         public CompanyReal GetCompanyByCompanyId(Guid companyId)
         {
             if (_httpClient.BaseAddress == null)
@@ -125,6 +161,40 @@ namespace RobotaNearMe.Client.Services
             try
             {
                 var user = _httpClient.PostAsJsonAsync<User>(Endpoints.V1.POSTUSER, model).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PutFileForUser(FileTable modelos)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PutAsJsonAsync<FileTable>(Endpoints.V1.PUTFILE, modelos).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PostFile(FileTable model)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PostAsJsonAsync<FileTable>(Endpoints.V1.POSTFILE, model).Result;
                 return true;
             }
             catch (HttpRequestException exception)
@@ -167,7 +237,7 @@ namespace RobotaNearMe.Client.Services
                 return false;
             }
         }
-        public bool PostCompany(Company model)
+        public bool PostCompany(CompanyReal model)
         {
             if (_httpClient.BaseAddress == null)
             {
@@ -175,7 +245,7 @@ namespace RobotaNearMe.Client.Services
             }
             try
             {
-                var user = _httpClient.PostAsJsonAsync<Company>(Endpoints.V1.POSTCOMPANY, model).Result;
+                var user = _httpClient.PostAsJsonAsync<CompanyReal>(Endpoints.V1.POSTCOMPANY, model).Result;
                 return true;
             }
             catch (HttpRequestException exception)

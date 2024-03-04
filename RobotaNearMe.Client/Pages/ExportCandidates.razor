@@ -1,22 +1,60 @@
-﻿@page "/candidates"
+﻿@page "/exportcandiates/{jobOfferId}"
 @using IronXL
 @using RobotaNearMe.Client.Data
 @using RobotaNearMe.Client.Services
 @using RobotaNearMe.Lib.Modelos
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
 
 
 <h3>ExportCandidates</h3>
-<button>Export data to Excel</button>
-<button>Export data to PDF</button>
+<button @onclick="OnExportToExcel">Export data to Excel</button>
+<button @onclick="OnExportToPDF">Export data to PDF</button>
 
 @inject ApiService _service
 @inject ExportToExcel _excel
 @inject ExportToPDF _pdf
+@inject NavigationManager NavigationManager
 @code {
-    private string companyName = "CompanyName";
+
+
+    [Parameter] public string JobOfferId { get; set; }
+    private JobOffer _offer { get; set; }
+
+    private int _jobFieldId;
+    private List<int> _jobFieldIds = new();
+    private List<OfferInUser> _jobOffers;
+    private List<JobField> _jobFields;
+    private JobType? _selectedJobType;
+    private List<JobOffer> _filteredJobOffers;
+    private LocationRegion? _selectedLocation;
+    private CompanyReal _company;
+    private List<User> _users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        string mail = user.Identity.Name;
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            Guid _realOfferId = Guid.Parse(JobOfferId);
+            _offer = _service.GetOffers().Where(x => x.Id == _realOfferId).FirstOrDefault();
+            _company = _service.GetCompanyByCompanyId(_offer.CompanyId);
+            _jobOffers = _service.GetOffersInUsers(_offer.Id).ToList();
+            //_jobFields = _service.GetJobFields().ToList();
+            // var useros = _service.GetUserByName(mail);
+            // _user = useros;
+        }
+        else
+        {
+
+        }
+    }
     private void OnExportToExcel()
     {
-        _excel.ExportAllUsers(_service, companyName);
+        //_excel.ExportAllUsers(_service, companyName);
+        _excel.ExportAllCandiates(_users, _company.Name);
     }
     private void OnExportToPDF()
     {

@@ -8,6 +8,10 @@
 <h1>Welcome @_client.Name @_client.Surname</h1>
 <RobotaNearMe.Client.Components.ProfileComponent User="_client" ></RobotaNearMe.Client.Components.ProfileComponent>
 
+<InputFile OnChange="LoadFiles" />
+
+<button @onclick="DownloadFile"> Download files</button>
+
 @inject ApiService _service
 @code {
     private string userName;
@@ -15,6 +19,7 @@
     private string firstname;
     private string Lastname;
     private User _client;
+    private FileTable _fileTable = new();
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
@@ -29,6 +34,71 @@
         else
         {
 
+        }
+    }
+    private async void LoadFiles(InputFileChangeEventArgs e)
+    {
+        FileTable fileos = _service.GetFileForUser(_client.Id);
+        if (fileos.Name == null)
+        {
+
+            using (var stream = e.File.OpenReadStream())
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await stream.CopyToAsync(memoryStream);
+                    byte[] fileContent = memoryStream.ToArray();
+                    _fileTable.Data = fileContent;
+                    _fileTable.Name = e.File.Name;
+                    _fileTable.Added = DateTime.UtcNow;
+                    _fileTable.UpdatedAt = DateTime.UtcNow;
+                    _fileTable.Id = Guid.NewGuid();
+                    _fileTable.UserId = _client.Id;
+
+                    _service.PostFile(_fileTable);
+                }
+
+            }
+        }
+        else
+        {
+            var _limitSize = 100 * 1024 * 1024; // 100 MB maximalni velikost
+            using (var stream = e.File.OpenReadStream(maxAllowedSize: _limitSize))
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await stream.CopyToAsync(memoryStream);
+                    byte[] fileContent = memoryStream.ToArray();
+                    fileos.Data = fileContent;
+                    fileos.Name = e.File.Name;
+                    fileos.UpdatedAt = DateTime.UtcNow;
+                    _service.PutFileForUser(fileos);
+                }
+
+            }
+        }
+
+
+
+    }
+    private void DownloadFile()
+    {
+        FileTable file = _service.GetFileForUser(_client.Id);
+        if (file != null)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string filePath = Path.Combine(path, file.Name);
+            File.WriteAllBytes(filePath, file.Data);
+            File.SetLastWriteTime(filePath, DateTime.Now);
+        }
+        else
+        {
+            
         }
     }
 }

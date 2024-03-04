@@ -1,0 +1,71 @@
+﻿@page "/companyalloffers"
+@using RobotaNearMe.Lib.Modelos
+@using RobotaNearMe.Client.Services
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+<div style="padding-top: 100px">
+    <h3> All job offers by your company </h3>
+    @foreach (var item in _jobOffers ?? _jobOffers)
+    {
+        <div> @item.Title </div>
+        <div> @item.Language </div>
+        <div> @item.Added </div>
+        <button @onclick="(() => OnSelect(item))">More information</button>
+    }
+</div>
+
+@inject ApiService _service
+@inject NavigationManager NavigationManager
+@code {
+    private int _jobFieldId;
+    private List<int> _jobFieldIds = new();
+    private List<JobOffer> _jobOffers;
+    private List<JobField> _jobFields;
+    private JobType? _selectedJobType;
+    private List<JobOffer> _filteredJobOffers;
+    private LocationRegion? _selectedLocation;
+    private Company _company;
+    private User _user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        _user = _service.GetUserByName(user.Identity.Name);
+        _company = _service.GetCompanyById(_user.Id);
+        _jobOffers = _service.GetOffers().Where(x => x.CompanyId == _company.Id).ToList();
+        _jobFields = _service.GetJobFields().ToList();
+        _filteredJobOffers = new List<JobOffer>();
+        // if (user.Identity != null && user.Identity.IsAuthenticated)
+        // {
+        // }
+        // else
+        // {
+
+        // }
+
+    }
+    private void OnSelect(JobOffer _selected)
+    {
+        //string modelos = System.Text.Json.JsonSerializer.Serialize(_selected);
+        NavigationManager.NavigateTo($"/exportcandiates/{_selected.Id.ToString()}");
+    }
+    private void OnFilter()
+    {
+        _filteredJobOffers = new List<JobOffer>();
+        foreach (var jobOffer in _jobOffers)
+        {
+            if (_selectedJobType.HasValue && _selectedJobType.Value == null && _selectedLocation == null)
+            {
+                _filteredJobOffers.Add(jobOffer);
+            }
+            else if ((!_selectedJobType.HasValue && (!_selectedLocation.HasValue || _selectedLocation == jobOffer.LocationId)) || _selectedJobType.HasValue && _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == null || !_selectedJobType.HasValue && _selectedLocation == jobOffer.LocationId || !_selectedJobType.HasValue && !_selectedLocation.HasValue || _selectedJobType.HasValue && _selectedJobType.Value == null && _selectedLocation == jobOffer.LocationId || _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == jobOffer.LocationId)
+            {
+                _filteredJobOffers.Add(jobOffer);
+            }
+        }
+    }
+
+}

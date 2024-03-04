@@ -17,7 +17,7 @@ namespace RobotaNearMe.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.10")
+                .HasAnnotation("ProductVersion", "7.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -366,6 +366,36 @@ namespace RobotaNearMe.Migrations
                     b.ToTable("Educations");
                 });
 
+            modelBuilder.Entity("RobotaNearMe.Data.FileTable", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("Added")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<byte[]>("Data")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Files");
+                });
+
             modelBuilder.Entity("RobotaNearMe.Data.JobField", b =>
                 {
                     b.Property<int>("Id")
@@ -406,6 +436,9 @@ namespace RobotaNearMe.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("IntrestedInIt")
+                        .HasColumnType("integer");
 
                     b.Property<int>("JobFieldId")
                         .HasColumnType("integer");
@@ -467,45 +500,6 @@ namespace RobotaNearMe.Migrations
                     b.ToTable("OfferInUser");
                 });
 
-            modelBuilder.Entity("RobotaNearMe.Data.PreviousJobs", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("CompanyName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("Ended")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("JobFieldId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Started")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("JobFieldId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("PreviousJobs");
-                });
-
             modelBuilder.Entity("RobotaNearMe.Data.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -521,9 +515,6 @@ namespace RobotaNearMe.Migrations
                     b.Property<string>("IdentityUserId")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<Guid>("JobOfferId")
-                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("Joined")
                         .HasColumnType("timestamp with time zone");
@@ -630,6 +621,17 @@ namespace RobotaNearMe.Migrations
                     b.Navigation("ContactCompany");
                 });
 
+            modelBuilder.Entity("RobotaNearMe.Data.FileTable", b =>
+                {
+                    b.HasOne("RobotaNearMe.Data.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("RobotaNearMe.Data.JobOffer", b =>
                 {
                     b.HasOne("RobotaNearMe.Data.JobField", "JobField")
@@ -660,25 +662,6 @@ namespace RobotaNearMe.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("RobotaNearMe.Data.PreviousJobs", b =>
-                {
-                    b.HasOne("RobotaNearMe.Data.JobField", "JobField")
-                        .WithMany()
-                        .HasForeignKey("JobFieldId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RobotaNearMe.Data.User", "User")
-                        .WithMany("PreviousJobs")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("JobField");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("RobotaNearMe.Data.User", b =>
                 {
                     b.HasOne("RobotaNearMe.Data.Contact", "Contact")
@@ -704,11 +687,6 @@ namespace RobotaNearMe.Migrations
                     b.Navigation("Education");
 
                     b.Navigation("IdentityUser");
-                });
-
-            modelBuilder.Entity("RobotaNearMe.Data.User", b =>
-                {
-                    b.Navigation("PreviousJobs");
                 });
 #pragma warning restore 612, 618
         }
