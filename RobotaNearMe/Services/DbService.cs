@@ -201,7 +201,7 @@ namespace RobotaNearMe.Services
             }
             else
             {
-                return _context.Companies.Include(x =>x.ContactCompany).Include(x => x.Admin).FirstOrDefault(x => x.UserId == id);
+                return _context.Companies.Include(x =>x.ContactCompany).Include(x => x.Admin).Include(x => x.Admin.Education).Include(x => x.Admin.Contact).FirstOrDefault(x => x.UserId == id);
             }
         }
         public FileTable GetFileForUser(Guid id)
@@ -228,13 +228,14 @@ namespace RobotaNearMe.Services
         }
         public List<OfferInUser> GetOffersInUser(Guid offerId)
         {
-            if (_context.Companies.FirstOrDefault(x => x.Id == offerId) == null)
+            if (_context.OfferInUser.Where(x => x.JobOfferId == offerId) != null)
             {
-                return new List<OfferInUser>();
+                return _context.OfferInUser.Include(x => x.User.Contact).Include(x => x.User.Education).Include(x => x.User).Include(x => x.JobOffer).Where(x => x.JobOfferId == offerId).ToList();
+
             }
             else
             {
-                return _context.OfferInUser.Include(x => x.User.Contact).Include(x => x.User.Education).Include(x => x.User).Where(x => x.JobOfferId == offerId).ToList();
+                return new List<OfferInUser>(); 
             }
         }
 

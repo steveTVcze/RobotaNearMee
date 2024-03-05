@@ -1,0 +1,111 @@
+﻿@using RobotaNearMe.Lib.Modelos
+
+<h1> Update profile </h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Name:</label>
+        <input type="text" @bind="User.Name"  class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Surname:</label>
+        <input type="text" @bind="User.Surname" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Email:</label>
+        <input type="email" @bind="User.Contact.Email" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Username:</label>
+        <input type="text" @bind="User.UserName" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Maximalni dosazene vzdelani:</label>
+        <input type="text" @bind="User.Education.MaxEduLevelId" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>City:</label>
+        <input type="text" @bind="city" @oninput="UpdateMap" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Postal:</label>
+        <input type="text" @bind="postal" @oninput="UpdateMap" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Phone:</label>
+        <input type="tel" @bind="User.Contact.Phone" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Country:</label>
+        <input type="text" @bind="User.Contact.Country"  class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Address:</label>
+        <input type="text" @bind="address" @oninput="UpdateMap" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>SchoolName:</label>
+        <input type="text" @bind="User.Education.SchoolName" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>SchoolAddress:</label>
+        <input type="text" @bind="User.Education.SchoolAddress" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>GraduationDate:</label>
+        <input type="date" @bind="User.Education.GraduationDate" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Admin or user:</label>
+        <input type="text" @bind="User.Role" class="form-control" />
+    </div>
+</div>
+
+<button type="submit" @onclick="OnClick" class="w-100 btn btn-lg btn-primary">Update your profile</button>
+
+<iframe src="@mapUrl"></iframe>
+
+
+@code {
+    [Parameter] public User User { get; set; }
+    [Parameter] public Contact Contact { get; set; }
+    [Parameter] public Education Edu { get; set; }
+    private string mapUrl;
+    private string address;
+    private string postal;
+    private string city;
+    protected override async Task OnInitializedAsync()
+    {
+        address = User.Contact.Address;
+        postal = User.Contact.Postal;
+        city = User.Contact.City;
+        UpdateMap();
+    }
+    private void OnClick()
+    {
+
+    }
+    private void UpdateMap()
+    {
+        mapUrl = $"https://www.google.com/maps?q={address} {postal} {city}&output=embed";
+        StateHasChanged();
+    }
+}

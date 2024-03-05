@@ -22,6 +22,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Components/CompanyProfileComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb21wYW55UHJvZmlsZUNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Components/ContactComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb250YWN0Q29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -30,12 +34,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9maWxlQ29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Components/UpdateProfileComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVcGRhdGVQcm9maWxlQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/AddCompany.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ29tcGFueS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/AddJobOffers.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkSm9iT2ZmZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/CompanyProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcGFueVByb2ZpbGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/Counter.razor]
@@ -70,8 +82,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsZWN0T2ZmZXJUb0V4cG9ydC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/UpdateCompanyProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlQ29tcGFueVByb2ZpbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/UpdateJobOffer.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlSm9iT2ZmZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/UpdateProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlUHJvZmlsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Shared/LoginDisplay.razor]

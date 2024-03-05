@@ -5,6 +5,15 @@
 @using RobotaNearMe.Lib.Modelos
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
+<h3>Download CVs</h3>
+@foreach (var i in _jobOffers)
+{
+    <div>
+        <div>@i.User.Name @i.User.Surname</div>
+        <button @onclick="() => DownloadCV(i.User.Id)">Download CV for user @i.User.Name</button>
+    
+    </div>
+}
 
 
 <h3>ExportCandidates</h3>
@@ -51,13 +60,33 @@
 
         }
     }
+    private void DownloadCV(Guid clientId)
+    {
+        FileTable file = _service.GetFileForUser(clientId);
+        if (file != null)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string filePath = Path.Combine(path, file.Name);
+            File.WriteAllBytes(filePath, file.Data);
+            File.SetLastWriteTime(filePath, DateTime.Now);
+        }
+        else
+        {
+
+        }
+    }
     private void OnExportToExcel()
     {
         //_excel.ExportAllUsers(_service, companyName);
-        _excel.ExportAllCandiates(_users, _company.Name);
+        _excel.ExportAllCandiates(_jobOffers, _company.Name);
     }
     private void OnExportToPDF()
     {
-        _pdf.ExportAllUsers(_service);
+        _pdf.ExportAllUsersThatAppliedForJob(_jobOffers, _company.Name);
     }
 }

@@ -1,0 +1,38 @@
+﻿@page "/companyprofile"
+@using RobotaNearMe.Lib.Modelos
+@using RobotaNearMe.Client.Services
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<PageTitle>Profile</PageTitle>
+
+<h1>Welcome @_client.Name @_client.Surname</h1>
+<RobotaNearMe.Client.Components.CompanyProfileComponent _company="_company"></RobotaNearMe.Client.Components.CompanyProfileComponent>
+
+
+
+@inject ApiService _service
+@code {
+    private string userName;
+    private User _client;
+    private CompanyReal _company;
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            userName = user.Identity.Name;
+
+            _client = _service.GetUserByName(userName);
+            if (_client != null)
+            {
+                _company = _service.GetCompanyById(_client.Id);
+            }
+        }
+        else
+        {
+
+        }
+    }
+}

@@ -1,0 +1,28 @@
+﻿@page "/updateprofile"
+@using RobotaNearMe.Client.Services
+@using RobotaNearMe.Lib.Modelos
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+<h3>UpdateProfile</h3>
+<RobotaNearMe.Client.Components.UpdateProfileComponent User="_user"></RobotaNearMe.Client.Components.UpdateProfileComponent>
+@inject ApiService _service
+
+@code {
+    [Parameter] public string UserId { get; set; }
+    private User _user { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        string mail = user.Identity.Name;
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            _user = _service.GetUserByName(mail);
+        }
+        else
+        {
+
+        }
+    }
+}

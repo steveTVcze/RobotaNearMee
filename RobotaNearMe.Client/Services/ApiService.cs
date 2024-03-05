@@ -98,7 +98,7 @@ namespace RobotaNearMe.Client.Services
                 return new User();
             }
         }
-        public Company GetCompanyById(Guid userId)
+        public CompanyReal GetCompanyById(Guid userId)
         {
             if (_httpClient.BaseAddress == null)
             {
@@ -107,13 +107,13 @@ namespace RobotaNearMe.Client.Services
             try
             {
 
-                var users = _httpClient.GetFromJsonAsync<Company>(Endpoints.V1.GETCOMPANY + $"/{userId}").Result;
+                var users = _httpClient.GetFromJsonAsync<CompanyReal>(Endpoints.V1.GETCOMPANY + $"/{userId}").Result;
                 return users;
             }
             catch (HttpRequestException exception)
             {
                 Console.WriteLine($"Something went wrong: {exception.Message}");
-                return new Company();
+                return new CompanyReal();
             }
         }
         public FileTable GetFileForUser(Guid userId)
