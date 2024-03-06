@@ -142,6 +142,24 @@ po kliknutí a potvrzení odkazu následuje možnost přihlášení
 
 ![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/a3afaa6c-d4c0-4333-823d-b318bc6a53e5)
 
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/baa717c9-ccaf-4eb9-a7ee-ff3318549583)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/0a96a966-1287-4a33-9251-707b9d64189a)
+
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/ea07a23c-77d2-4c14-9fa8-2fa4b37d1a9f)
+
+-pokud se přihlásíte za účet se špatnou rolí, máte smůlu
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/7f4c694e-2260-47a1-88c9-19a8be07dbc1)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/85205958-e5b7-47e6-a173-5f1cedebeabb)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/c46f9594-f382-4446-862f-6f27e0619098)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/c81b8f06-8fe6-42ac-8775-54f4e6725295)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/5310e332-2279-4ebf-803a-cdef0a19351e)
+
 
 #### User
 - externí API pro receptář
