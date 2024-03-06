@@ -14,12 +14,19 @@
             <div>Email :</div>
             @if (_candidates.Count != 0)
             {
-                <select @bind="_selectedCandidate">
-                    @foreach (var item in _candidates)
-                    {
-                        <option value="@item">@item</option>
-                    }
-                </select>
+                @if (_candidates.Count > 1)
+                {
+                    <select @bind="_selectedCandidate">
+                        @foreach (var item in _candidates)
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                }
+                else
+                {
+                    <span>@_candidates.First()</span>
+                }
             }
             <div>Subject :</div>
             <input type="text" required style="width: 300px" @bind="_subject" name="Subject" />
