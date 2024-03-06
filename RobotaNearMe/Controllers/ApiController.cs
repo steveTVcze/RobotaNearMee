@@ -82,6 +82,39 @@ namespace RobotaNearMe.Controllers
 
             return true;
         }
+        [HttpPut(Endpoints.V1.PUTJOBOFFER)]
+        public bool PutOffer([FromBody] JobOffer model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            _service.UpdateOffer(model);
+
+            return true;
+        }
+        [HttpPut(Endpoints.V1.PUTUSERPROFILE)]
+        public bool PutUserProfile([FromBody] User model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            _service.UpdateProfile(model);
+
+            return true;
+        }
+        [HttpPut(Endpoints.V1.PUTCOMPANYPROFILE)]
+        public bool PutCompanyProfile([FromBody] Company model)
+        {
+            if (model == null)
+            {
+                return false;
+            }
+            _service.UpdateCompanyProfile(model);
+
+            return true;
+        }
         [HttpPost(Endpoints.V1.POSTCONTACT)]
         public bool PostContact([FromBody] Contact model)
         {
@@ -199,6 +232,12 @@ namespace RobotaNearMe.Controllers
         public List<OfferInUser> GetOffersInUser(Guid offerId)
         {
             List<OfferInUser> offerosinUser = _service.GetOffersInUser(offerId);
+            return offerosinUser;
+        }
+        [HttpGet(Endpoints.V1.GETOFFERINUSERFORCOMPANY + "/{companyId}")]
+        public List<string> GetOffersInUserForCompany(Guid companyId)
+        {
+            List<string> offerosinUser = _service.GetOffersInUserForCompany(companyId);
             return offerosinUser;
         }
     }

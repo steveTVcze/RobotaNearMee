@@ -52,20 +52,5 @@
         //string modelos = System.Text.Json.JsonSerializer.Serialize(_selected);
         NavigationManager.NavigateTo($"/exportcandiates/{_selected.Id.ToString()}");
     }
-    private void OnFilter()
-    {
-        _filteredJobOffers = new List<JobOffer>();
-        foreach (var jobOffer in _jobOffers)
-        {
-            if (_selectedJobType.HasValue && _selectedJobType.Value == null && _selectedLocation == null)
-            {
-                _filteredJobOffers.Add(jobOffer);
-            }
-            else if ((!_selectedJobType.HasValue && (!_selectedLocation.HasValue || _selectedLocation == jobOffer.LocationId)) || _selectedJobType.HasValue && _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == null || !_selectedJobType.HasValue && _selectedLocation == jobOffer.LocationId || !_selectedJobType.HasValue && !_selectedLocation.HasValue || _selectedJobType.HasValue && _selectedJobType.Value == null && _selectedLocation == jobOffer.LocationId || _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == jobOffer.LocationId)
-            {
-                _filteredJobOffers.Add(jobOffer);
-            }
-        }
-    }
 
 }

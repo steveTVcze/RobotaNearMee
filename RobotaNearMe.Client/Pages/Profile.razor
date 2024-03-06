@@ -41,8 +41,8 @@
         FileTable fileos = _service.GetFileForUser(_client.Id);
         if (fileos.Name == null)
         {
-
-            using (var stream = e.File.OpenReadStream())
+            var _limitSize = 100 * 1024 * 1024; // 100 MB maximalni velikost
+            using (var stream = e.File.OpenReadStream(maxAllowedSize: _limitSize))
             {
                 using (var memoryStream = new MemoryStream())
                 {

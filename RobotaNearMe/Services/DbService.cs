@@ -131,6 +131,24 @@ namespace RobotaNearMe.Services
                 _context.SaveChanges();
             }
         }
+        public void UpdateProfile(User useros)
+        {
+
+            if (useros != null)
+            {
+                _context.User.Update(useros);
+                _context.SaveChanges();
+            }
+        }
+        public void UpdateCompanyProfile(Company company)
+        {
+
+            if (company != null)
+            {
+                _context.Companies.Update(company);
+                _context.SaveChanges();
+            }
+        }
         public void UpdateFileForUser(FileTable fileTable)
         {
 
@@ -186,7 +204,7 @@ namespace RobotaNearMe.Services
             {
                 return new List<User>();
             }
-            return _context.User.ToList();
+            return _context.User.Include(x => x.Contact).ToList();
         }
         public User GetUser(string name)
         {
@@ -224,6 +242,34 @@ namespace RobotaNearMe.Services
             else
             {
                 return _context.Companies.Include(x => x.ContactCompany).Include(x => x.Admin).FirstOrDefault(x => x.Id == companyId);
+            }
+        }
+        public List<string> GetOffersInUserForCompany(Guid companyId)
+        {
+            List<string> list = new List<string>();
+            if (_context.JobOffers.Where(x => x.CompanyId == companyId) != null)
+            {
+                List<JobOffer> offers = _context.JobOffers.Where(x => x.CompanyId == companyId).ToList();
+                foreach (var item in offers)
+                {
+                    if (_context.OfferInUser.Where(x => x.Id == item.Id) != null)
+                    {
+                        List<OfferInUser> of = _context.OfferInUser.Where(x => x.JobOfferId== item.Id).Include(x => x.User).Include(x => x.User.Contact).ToList();
+                        foreach (var itemik in of)
+                        {
+                            if (!list.Contains(itemik.User.Contact.Email))
+                            {
+                                list.Add(itemik.User.Contact.Email);
+                            }
+                        }
+                    }
+                }
+                return list;
+
+            }
+            else
+            {
+                return new List<string>();
             }
         }
         public List<OfferInUser> GetOffersInUser(Guid offerId)

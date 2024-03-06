@@ -63,7 +63,7 @@
     private void DownloadCV(Guid clientId)
     {
         FileTable file = _service.GetFileForUser(clientId);
-        if (file != null)
+        if (file.Data != null && file.Name != null)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
             if (!Directory.Exists(path))

@@ -44,6 +44,24 @@ namespace RobotaNearMe.Client.Services
                 return new List<OfferInUser>();
             }
         }
+        public IEnumerable<string> GetOffersInUsersForCompany(Guid companyId)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+
+                var offers = _httpClient.GetFromJsonAsync<IEnumerable<string>>(Endpoints.V1.GETOFFERINUSERFORCOMPANY + $"/{companyId}").Result;
+                return offers;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return new List<string>();
+            }
+        }
         public IEnumerable<JobField> GetJobFields()
         {
             if (_httpClient.BaseAddress == null)
@@ -178,6 +196,57 @@ namespace RobotaNearMe.Client.Services
             try
             {
                 var user = _httpClient.PutAsJsonAsync<FileTable>(Endpoints.V1.PUTFILE, modelos).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PutJobOffer(JobOffer modelos)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PutAsJsonAsync<JobOffer>(Endpoints.V1.PUTJOBOFFER, modelos).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PutUserProfile(User modelos)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PutAsJsonAsync<User>(Endpoints.V1.PUTUSERPROFILE, modelos).Result;
+                return true;
+            }
+            catch (HttpRequestException exception)
+            {
+                Console.WriteLine($"Something went wrong: {exception.Message}");
+                return false;
+            }
+        }
+        public bool PutCompanyProfile(CompanyReal model)
+        {
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri("https://localhost:7159/");
+            }
+            try
+            {
+                var user = _httpClient.PutAsJsonAsync<CompanyReal>(Endpoints.V1.PUTCOMPANYPROFILE, model).Result;
                 return true;
             }
             catch (HttpRequestException exception)

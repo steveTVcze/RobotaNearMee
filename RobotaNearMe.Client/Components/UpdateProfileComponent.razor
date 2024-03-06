@@ -1,4 +1,5 @@
-﻿@using RobotaNearMe.Lib.Modelos
+﻿@using RobotaNearMe.Client.Services
+@using RobotaNearMe.Lib.Modelos
 
 <h1> Update profile </h1>
 
@@ -73,17 +74,14 @@
         <label>GraduationDate:</label>
         <input type="date" @bind="User.Education.GraduationDate" class="form-control" />
     </div>
-    <div class="col-md-6">
-        <label>Admin or user:</label>
-        <input type="text" @bind="User.Role" class="form-control" />
-    </div>
 </div>
 
-<button type="submit" @onclick="OnClick" class="w-100 btn btn-lg btn-primary">Update your profile</button>
+<button @onclick="OnUpdate" class="w-100 btn btn-lg btn-primary">Update your profile</button>
 
 <iframe src="@mapUrl"></iframe>
 
-
+@inject ApiService _service
+@inject NavigationManager NavigationManager
 @code {
     [Parameter] public User User { get; set; }
     [Parameter] public Contact Contact { get; set; }
@@ -99,9 +97,12 @@
         city = User.Contact.City;
         UpdateMap();
     }
-    private void OnClick()
+    private void OnUpdate()
     {
-
+        User.Contact.Address = address;
+        User.Contact.Postal = postal;
+        User.Contact.City = city;
+        _service.PutUserProfile(User);
     }
     private void UpdateMap()
     {

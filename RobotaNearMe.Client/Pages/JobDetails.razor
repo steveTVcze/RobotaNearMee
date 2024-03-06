@@ -45,7 +45,13 @@
         <button @onclick="OnMail"> Mail me this offer</button>
     </div>
     <iframe height="400" width="600" src="@($"https://www.google.com/maps?q={_company.ContactCompany.Address} {_company.ContactCompany.Postal} {_company.ContactCompany.City}&output=embed")"></iframe>
-    <button @onclick="OnSubmit">More information</button>
+    @if (_alreadyApplied != null && _alreadyApplied.Id != null)
+    {
+        <p>You have already applied for this job.</p>
+    }
+    else{
+        <button @onclick="OnSubmit">Apply for this job</button>
+    }
 </div>
 
 @inject ApiService _service
@@ -63,6 +69,7 @@
     private CompanyReal _company;
     private User _user;
     private OfferInUser _offerInUser = new();
+    private OfferInUser _alreadyApplied;
 
 
 
@@ -90,9 +97,9 @@
             Guid _realOfferId = Guid.Parse(JobOfferId);
             _offer = _service.GetOffers().Where(x => x.Id == _realOfferId).FirstOrDefault();
             _company = _service.GetCompanyByCompanyId(_offer.CompanyId);
-            //_jobFields = _service.GetJobFields().ToList();
             var useros = _service.GetUserByName(mail);
             _user = useros;
+            _alreadyApplied =  _service.GetOffersInUsers(_offer.Id).FirstOrDefault(x => x.UserId == _user.Id);
         }
         else
         {
@@ -133,7 +140,7 @@
             _offerInUser.JobOfferId = _offer.Id;
 
             _service.PostOfferInUser(_offerInUser);
-
+            NavigationManager.NavigateTo($"/");
         }
     }
 

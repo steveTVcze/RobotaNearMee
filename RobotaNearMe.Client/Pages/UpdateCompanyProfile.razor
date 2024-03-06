@@ -1,5 +1,33 @@
-﻿<h3>UpdateCompanyProfile</h3>
+﻿@page "/updatecompany/{companyId}"
+@using RobotaNearMe.Client.Services
+@using RobotaNearMe.Lib.Modelos
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
+
+<h3>UpdateProfile</h3>
+@if (_user.Id == _company.UserId)
+{
+    <RobotaNearMe.Client.Components.UpdateCompanyProfileComponent _company="_company"></RobotaNearMe.Client.Components.UpdateCompanyProfileComponent>
+}
+@inject ApiService _service
 @code {
+    [Parameter] public string companyId { get; set; }
+    private CompanyReal _company { get; set; }
+    private User _user { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        string mail = user.Identity.Name;
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            _user = _service.GetUserByName(mail);
+            Guid realCompanyId = Guid.Parse(companyId);
+            _company = _service.GetCompanyByCompanyId(realCompanyId);
+        }
+        else
+        {
 
+        }
+    }
 }

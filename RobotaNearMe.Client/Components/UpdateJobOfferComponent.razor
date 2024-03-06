@@ -1,0 +1,91 @@
+﻿@using RobotaNearMe.Client.Services
+@using RobotaNearMe.Lib.Modelos
+
+<h1> Update job offer </h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Title:</label>
+        <input type="text" @bind="_jobOffer.Title" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Language:</label>
+        <input type="text" @bind="_jobOffer.Language" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Benefits:</label>
+        <input type="email" @bind="_jobOffer.Benefits" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Description:</label>
+        <input type="text" @bind="_jobOffer.Description" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Salary:</label>
+        <input type="text" @bind="_jobOffer.Salary"  class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Job type:</label>
+        <select @bind="_selectedJobType" class="form-control">
+            <option value="">All</option>
+            @foreach (JobType jobType in Enum.GetValues(typeof(JobType)))
+            {
+                <option value="@jobType">@jobType.ToString()</option>
+            }
+        </select>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>StillValid:</label>
+        <input type="checkbox" @bind="_jobOffer.StillValid" />
+    </div>
+    <div class="col-md-6">
+        <label>Remote:</label>
+        <input type="checkbox" @bind="_jobOffer.Remote" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <select @bind="_selectedLocation" class="form-control">
+            <option value=""> All</option>
+            @foreach (LocationRegion region in Enum.GetValues(typeof(LocationRegion)))
+            {
+                <option value="@(region)">@region.ToString()</option>
+            }
+        </select>
+    </div>
+   
+</div>
+
+
+<button type="submit" @onclick="OnUpdate" class="w-100 btn btn-lg btn-primary">Update your profile</button>
+
+@inject ApiService _service
+@inject NavigationManager NavigationManager
+@code {
+    [Parameter] public JobOffer _jobOffer { get; set; }
+    private JobType _selectedJobType;
+    private LocationRegion _selectedLocation;
+    protected override async Task OnInitializedAsync()
+    {
+        _selectedJobType = _jobOffer.JobTypeId;
+        _selectedLocation = _jobOffer.LocationId;
+    }
+    private void OnUpdate()
+    {
+        _jobOffer.JobTypeId = _selectedJobType;
+        _jobOffer.LastUpdated = DateTime.UtcNow.AddHours(1);
+        _jobOffer.LocationId = _selectedLocation;
+        _service.PutJobOffer(_jobOffer);
+    }
+}

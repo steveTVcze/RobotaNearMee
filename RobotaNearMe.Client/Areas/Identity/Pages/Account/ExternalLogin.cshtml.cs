@@ -20,6 +20,9 @@ using Microsoft.Extensions.Logging;
 using RobotaNearMe.Lib;
 using RobotaNearMe.Lib.Modelos;
 using RobotaNearMe.Client.Services;
+using MimeKit;
+using Microsoft.AspNetCore.Components;
+using RobotaNearMe.Client.Services;
 
 namespace RobotaNearMe.Client.Areas.Identity.Pages.Account
 {
@@ -96,7 +99,7 @@ namespace RobotaNearMe.Client.Areas.Identity.Pages.Account
             public string Surname { get; set; }
             public string IdentityUserId { get; set; }
             [Required]
-            public int MaxEduLevelId { get; set; }
+            public EducationType MaxEduLevelId { get; set; }
             [Required]
             public DateTime GraduationDate { get; set; }
             [Required]
@@ -145,6 +148,10 @@ namespace RobotaNearMe.Client.Areas.Identity.Pages.Account
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
             if (result.Succeeded)
             {
+                //ApiService _service = new();
+                //var user = _service.GetUserByName(info.Principal.Identity.Name);
+                //user.LastOnline = DateTime.UtcNow.AddHours(1);
+                //_service.PutUserProfile(user);
                 _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
                 return LocalRedirect(returnUrl);
             }
@@ -250,7 +257,12 @@ namespace RobotaNearMe.Client.Areas.Identity.Pages.Account
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)
                         {
-                            return RedirectToPage("./RegisterConfirmation", new { Email = Input.Email });
+                            MailService _mailService = new();
+                            string mailos = await _userManager.GetEmailAsync(user);
+                            string subject = $"Confirmation mail for Robota Near Me";
+                            string message = $"Please confirm your email address via this link: \n https://localhost:7257/Identity/Account/RegisterConfirmation?Email={mailos}";
+                            _mailService.SendConfirmationMail(mailos, subject, message);
+                            return RedirectToAction("Index");
                         }
 
                         await _signInManager.SignInAsync(user, isPersistent: false, info.LoginProvider);

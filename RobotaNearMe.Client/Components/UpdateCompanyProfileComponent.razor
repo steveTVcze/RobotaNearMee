@@ -1,0 +1,104 @@
+﻿@using RobotaNearMe.Client.Services
+@using RobotaNearMe.Lib.Modelos
+
+<h1> Update profile </h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>PFP:</label>
+        <input type="text" @bind="_company.ProfilePicture" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Email:</label>
+        <input type="text" @bind="_company.ContactCompany.Email" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Company name:</label>
+        <input type="email" @bind="_company.Name" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Info:</label>
+        <input type="text" @bind="_company.Info" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Website:</label>
+        <input type="text" @bind="_company.Website" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>City:</label>
+        <input type="text" @bind="city" @oninput="UpdateMap" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Postal:</label>
+        <input type="text" @bind="postal" @oninput="UpdateMap" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Phone:</label>
+        <input type="tel" @bind="_company.ContactCompany.Phone" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>Country:</label>
+        <input type="text" @bind="_company.ContactCompany.Country" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>Address:</label>
+        <input type="text" @bind="address" @oninput="UpdateMap" class="form-control" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <label>IC:</label>
+        <input type="text" @bind="_company.ContactCompany.IC" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label>DIC:</label>
+        <input type="text" @bind="_company.ContactCompany.DIC" class="form-control" />
+    </div>
+</div>
+
+<button @onclick="OnUpdate" class="w-100 btn btn-lg btn-primary">Update your profile</button>
+
+<iframe src="@mapUrl"></iframe>
+
+@inject ApiService _service
+@inject NavigationManager NavigationManager
+@code {
+    [Parameter] public CompanyReal _company { get; set; }
+
+    private string mapUrl;
+    private string address;
+    private string postal;
+    private string city;
+    protected override async Task OnInitializedAsync()
+    {
+        address = _company.ContactCompany.Address;
+        postal = _company.ContactCompany.Postal;
+        city = _company.ContactCompany.City;
+        UpdateMap();
+    }
+    private void OnUpdate()
+    {
+        _company.ContactCompany.Address = address;
+        _company.ContactCompany.Postal = postal;
+        _company.ContactCompany.City = city;
+        _service.PutCompanyProfile(_company);
+    }
+    private void UpdateMap()
+    {
+        mapUrl = $"https://www.google.com/maps?q={address} {postal} {city}&output=embed";
+        StateHasChanged();
+    }
+}

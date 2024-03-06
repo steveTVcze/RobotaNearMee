@@ -34,6 +34,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9maWxlQ29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Components/UpdateCompanyProfileComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVcGRhdGVDb21wYW55UHJvZmlsZUNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Components/UpdateJobOfferComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVcGRhdGVKb2JPZmZlckNvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Components/UpdateProfileComponent.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVcGRhdGVQcm9maWxlQ29tcG9uZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,6 +90,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsZWN0T2ZmZXJUb0V4cG9ydC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/SelectOfferToUpdate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VsZWN0T2ZmZXJUb1VwZGF0ZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/UpdateCompanyProfile.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlQ29tcGFueVByb2ZpbGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -92,6 +104,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/UpdateProfile.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXBkYXRlUHJvZmlsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Pages/VerifyEmail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVyaWZ5RW1haWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/steve/source/repos/RobotaNearMee/RobotaNearMe.Client/Shared/LoginDisplay.razor]

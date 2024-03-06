@@ -1,29 +1,19 @@
-﻿@model RobotaNearMe.Data.JobField
+﻿@model RobotaNearMe.Lib.AdminModels.NewsletterModel
 
-<form asp-action="AddJobField" asp-controller="Admin">
-    <div class="top-controls card" style="color:black">
+<h1>Inform everyone</h1>
+<form asp-action="SendNewsletter" asp-controller="Admin">
+    <div class="card" style="color:black">
         <div class="card-header">
-            <label>
-                Add job field
-            </label>
+            <label>Send newsletter to everyone</label>
         </div>
-        <div class="card-body" style="display:flex; flex-direction:column;">
-            <label>
-                Name:
-            </label>
-
-            <input style="width:380px" type="text" asp-for="Field" required />
-
-            <label>
-                Description:
-
-            </label>
-            <input style="width:380px" type="text" asp-for="Description" required />
+        <div class="card-body">
+            <div>Subject :</div>
+            <input type="text" asp-for="@Model.Subject" name="Subject" />
+            <div>Message :</div>
+            <textarea style="width: 600px; height: 300px" type="text" asp-for="@Model.Message" name="Message" > </textarea> 
         </div>
         <div class="card-footer">
-            <button class="btn-success" type="submit"> Add job field </button>
+            <button class="btn-success" type="submit">Inform everyone</button>
         </div>
-
-
     </div>
 </form>

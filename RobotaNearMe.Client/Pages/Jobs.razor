@@ -52,21 +52,13 @@
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var user = authState.User;
 
-        _jobOffers = _service.GetOffers().ToList();
+        _jobOffers = _service.GetOffers().Where(x => x.StillValid == true).ToList();
         _jobFields = _service.GetJobFields().ToList();
         _filteredJobOffers = new List<JobOffer>();
-        // if (user.Identity != null && user.Identity.IsAuthenticated)
-        // {
-        // }
-        // else
-        // {
-
-        // }
 
     }
     private void OnSelect(JobOffer _selected)
     {
-        //string modelos = System.Text.Json.JsonSerializer.Serialize(_selected);
         NavigationManager.NavigateTo($"/jobdetails/{_selected.Id.ToString()}");
     }
     private void OnFilter()
@@ -78,7 +70,8 @@
             {
                 _filteredJobOffers.Add(jobOffer);
             }
-            else if ((!_selectedJobType.HasValue && (!_selectedLocation.HasValue || _selectedLocation == jobOffer.LocationId)) || _selectedJobType.HasValue && _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == null || !_selectedJobType.HasValue && _selectedLocation == jobOffer.LocationId || !_selectedJobType.HasValue && !_selectedLocation.HasValue || _selectedJobType.HasValue && _selectedJobType.Value == null && _selectedLocation == jobOffer.LocationId || _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == jobOffer.LocationId)
+            // else if ((!_selectedJobType.HasValue && (!_selectedLocation.HasValue || _selectedLocation == jobOffer.LocationId)) || _selectedJobType.HasValue && _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == null || !_selectedJobType.HasValue && _selectedLocation == jobOffer.LocationId || !_selectedJobType.HasValue && !_selectedLocation.HasValue || _selectedJobType.HasValue && _selectedJobType.Value == null && _selectedLocation == jobOffer.LocationId || _selectedJobType.Value == jobOffer.JobTypeId && _selectedLocation == jobOffer.LocationId)
+            else if ((_selectedJobType == null || jobOffer.JobTypeId == _selectedJobType) && (_selectedLocation == null || jobOffer.LocationId == _selectedLocation))
             {
                 _filteredJobOffers.Add(jobOffer);
             }

@@ -79,16 +79,18 @@
     </div>
 </div>
 
-<button type="submit" @onclick="OnClick" class="w-100 btn btn-lg btn-primary">Update your profile</button>
+<button type="submit" @onclick="OnUpdate" class="w-100 btn btn-lg btn-primary">Update your profile</button>
 
 <iframe src="@($"https://www.google.com/maps?q={User.Contact.Address} {User.Contact.Postal} {User.Contact.City}&output=embed")"></iframe>
+@inject NavigationManager NavigationManager
+
 @code {
     [Parameter] public User User { get; set; }
     [Parameter] public Contact Contact { get; set; }
     [Parameter] public Education Edu { get; set; }
-    private void OnClick()
+    private void OnUpdate()
     {
-        
+        NavigationManager.NavigateTo($"/updateprofile");
     }
 
 }

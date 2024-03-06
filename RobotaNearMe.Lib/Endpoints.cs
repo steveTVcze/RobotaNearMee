@@ -15,6 +15,9 @@ namespace RobotaNearMe.Lib
             public const string GETUSERS = "api/v1/getusers";
             public const string POSTUSER = "api/v1/postuser";
             public const string PUTFILE = "api/v1/putfile";
+            public const string PUTJOBOFFER = "api/v1/putjoboffer";
+            public const string PUTUSERPROFILE = "api/v1/putuserprofile";
+            public const string PUTCOMPANYPROFILE = "api/v1/putcompanyprofile";
             public const string POSTOFFERINUSER = "api/v1/postofferinuser";
             public const string POSTCONTACT = "api/v1/postcontact";
             public const string POSTEDU = "api/v1/postedu";
@@ -27,6 +30,7 @@ namespace RobotaNearMe.Lib
             public const string GETFILEFORUSER = "api/v1/getfileforuser";
             public const string GETCOMPANYBYCOMPANYID = "api/v1/getcompanybyuserid";
             public const string GETOFFERSINUSER = "api/v1/getofferinuser";
+            public const string GETOFFERINUSERFORCOMPANY = "api/v1/getoffersinusersincompany";
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿@page
+@using RobotaNearMe.Lib.Modelos
 @model ExternalLoginModel
 @{
     ViewData["Title"] = "Register";
@@ -39,8 +40,12 @@
                 <span asp-validation-for="Input.UserName" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.MaxEduLevelId" class="form-control" autocomplete="email" placeholder="Please enter your education." />
-                <label asp-for="Input.MaxEduLevelId" class="form-label"></label>
+                <select asp-for="Input.MaxEduLevelId" class="form-control">
+                    @foreach (EducationType region in Enum.GetValues(typeof(EducationType)))
+                    {
+                        <option value="@(region)">@region.ToString()</option>
+                    }
+                </select>
                 <span asp-validation-for="Input.MaxEduLevelId" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">

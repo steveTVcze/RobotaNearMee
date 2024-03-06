@@ -383,3 +383,11 @@ C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\runtimes
 C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\BouncyCastle.Cryptography.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\MailKit.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\MimeKit.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\System.Formats.Asn1.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\System.Text.Encoding.CodePages.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\steve\source\repos\RobotaNearMee\RobotaNearMe\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Text.Encoding.CodePages.dll
