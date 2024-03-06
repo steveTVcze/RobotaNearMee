@@ -20,13 +20,9 @@ dotnet ef database update
 ###Export dat do PDF a Excelu 
 Všechny věci by se měly ukládat do Downloads. Nevím jak to funguje na Macu, ale na Windows by s tím neměl být žádný problém a nikde by se žádná cesta neměla upravovat.
 
-
-
-- neautorizovaný přístup
-![admin-theme](./ReadMeFiles/admin-not-authentificated.png)
-
 ## Diagram databáze
-![admin-theme](./ReadMeFiles/db-diagram.png)
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/96889483-7b34-4a28-bcc1-8de688cea5a9)
+
 
 
 ## Návod
@@ -61,8 +57,93 @@ Tato aplikace slouží jednak pro správu admin funkcí, ale také jako API na k
 - opět stačí kliknout na tlačítko, a pokud jsme změnili cestu kam se má soubor ukládat, vše by mělo proběhnout bez problémů
 
 ### Client
-![admin-theme](./ReadMeFiles/user-logged-in-main.png)
-#### Meals
+##### Nepřihlášený uživatel
+-stránka home - ("/") - využívá 3 externí API :D
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/b7c9ccde-5960-4367-a67b-fc904ffa3ce1)
+
+#### Registrace
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/cd01f45d-8e89-414b-96bd-08a877b41603)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/89c9215b-648e-4757-83be-56ab9cb6c1f4)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/b649d968-f68d-4c1e-a282-983ee2e72141)
+
+po kliknutí a potvrzení odkazu následuje možnost přihlášení
+
+#### Přihlášení
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/ec9fb9a5-6593-4ce0-9cd0-e9a10c467143)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/099e1db2-deca-40ca-be2f-f4b58b44f62c)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/ec48f400-fce6-49e2-aef9-b8ac2b3c8183)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/76c03f98-63aa-4c94-9353-4ae96a6dd083)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/60da0515-b9a6-464f-b890-c478c446e4e3)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/70743490-862a-4163-9b4b-354d0f5e2341)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/1f10cbec-72ac-4191-a66d-eb38c01c81d5)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/b8d1699a-1d8f-4e89-bc70-142988643fa8)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/103c41d9-e559-43cc-b1bd-13468e178604)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/3c9e54bb-5441-4081-9a4e-2b47e818d3ee)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/10a60db1-c5b6-442e-a09b-aa5719f5bbf6)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/46abbb71-1c2b-41b3-9d0f-a8fb005f02dc)
+-ukládá se do složky s projektem
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/c8ac7e35-670d-4c2c-aae7-e05208088c35)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/ca40cb96-d450-4ac4-8707-67ac5fa74799)
+-po odpovězení na nabídku práce jste přesměrováni na home stránku a po opětovném navštívení stránky s danou nabídkou práce tlačítko pro odpověď na nabídku zmizí
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/da2b48f7-6666-4046-af1f-b72b48d8eaac)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/418f9c71-8323-43ca-80ba-f4d69db379c8)
+
+-přihlášení za firmu - jako admin
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/bcaeca30-f57f-4b7e-8c7f-d33007bc2042)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/2521c674-8a63-4b3f-971d-1c3d780c9e86)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/d4a9fa35-2d57-4dbc-aca6-8fa55750df03)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/8012a0a3-08e9-487f-ad35-e1670ddfdef7)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/5fa7e22f-38c5-4045-8abd-bf7b91d339af)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/c7d549f3-cb8e-4284-a97e-84d33de9f2ab)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/edc668b9-f6c7-49ca-81bd-f6009f4d7a35)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/66211e0a-10a3-44b3-aa5f-5c4780df65f2)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/a85ed455-61a0-4f14-8690-e0b1fb08c654)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/5202a2a1-5e6f-4b57-a5c1-09d62f202ff0)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/3db91323-826a-4b2c-86a3-8e4a0809cf94)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/01655fbe-c237-4470-bbba-cd14f725387b)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/d5534e82-cdae-48a6-b3d8-d5dcbef749b8)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/428c327a-5df8-4433-a07f-52f0559859b0)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/ff0ef858-cfb2-4d66-b523-bbd4184f1093)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/9b0dcdeb-0902-44c6-adad-04b64667f269)
+
+![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/a3afaa6c-d4c0-4333-823d-b318bc6a53e5)
+
+
+#### User
 - externí API pro receptář
 ![admin-theme](./ReadMeFiles/user-meals.png)
 ![admin-theme](./ReadMeFiles/user-meals-more-specific.png)
