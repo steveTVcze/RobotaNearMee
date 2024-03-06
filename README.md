@@ -20,6 +20,9 @@ dotnet ef database update
 ### Export dat do PDF a Excelu 
 Všechny věci, kromě exportu PDF job offeru by se měly ukládat do Downloads. Nevím jak to funguje na Macu, ale na Windows by s tím neměl být žádný problém a nikde by se žádná cesta neměla upravovat.
 
+#### Součástí aplikace je také jednak nahrávání CVčka coby libovolného souboru do 100MB, zobraování google maps iframu se zadanou polohou, ale i zpracovávání 3 externích API a jejich endpointů a mnohem více!
+
+
 ## Diagram databáze
 ![image](https://github.com/steveTVcze/RobotaNearMee/assets/72168369/96889483-7b34-4a28-bcc1-8de688cea5a9)
 
