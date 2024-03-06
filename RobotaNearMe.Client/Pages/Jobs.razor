@@ -4,36 +4,45 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
 
-<div style="padding-top: 100px">
-    <h5>Filter</h5>
-    <label for="jobTypeFilter">Job Type:</label>
-    <select @bind="_selectedJobType" class="form-control">
-        <option value="">All</option>
-        @foreach (JobType jobType in Enum.GetValues(typeof(JobType)))
+<div class="container mt-1">
+    <div style="padding-top: 10px">
+        <h5>Filter</h5>
+        <div class="form-group">
+            <label for="jobTypeFilter">Job Type:</label>
+            <select class="form-control" @bind="_selectedJobType">
+                <option value="">All</option>
+                @foreach (JobType jobType in Enum.GetValues(typeof(JobType)))
+                {
+                    <option value="@jobType">@jobType.ToString()</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="locationFilter">Location:</label>
+            <select class="form-control" @bind="_selectedLocation">
+                <option value=""> All</option>
+                @foreach (LocationRegion region in Enum.GetValues(typeof(LocationRegion)))
+                {
+                    <option value="@(region)">@region.ToString()</option>
+                }
+            </select>
+        </div>
+
+        <button class="btn btn-primary" @onclick="OnFilter">Filter</button>
+
+        @foreach (var item in _filteredJobOffers ?? _jobOffers)
         {
-            <option value="@jobType">@jobType.ToString()</option>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title"> @item.Title </h5>
+                    <p class="card-text"> @item.Language </p>
+                    <p class="card-text"> @item.Added </p>
+                    <button class="btn btn-success" @onclick="(() => OnSelect(item))">More information</button>
+                </div>
+            </div>
         }
-    </select>
-
-
-    <label for="locationFilter">Location:</label>
-    <select @bind="_selectedLocation" class="form-control">
-        <option value=""> All</option>
-        @foreach (LocationRegion region in Enum.GetValues(typeof(LocationRegion)))
-        {
-            <option value="@(region)">@region.ToString()</option>
-        }
-    </select>
-
-    <button @onclick="OnFilter">Filter</button>
-
-    @foreach (var item in _filteredJobOffers ?? _jobOffers)
-    {
-        <div> @item.Title </div>
-        <div> @item.Language </div>
-        <div> @item.Added </div>
-        <button @onclick="(() => OnSelect(item))">More information</button>
-    }
+    </div>
 </div>
 
 @inject ApiService _service

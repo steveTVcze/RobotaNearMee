@@ -1,157 +1,159 @@
 ﻿@using RobotaNearMe.Lib.Modelos
 
-<h3>Profile</h3>
+<div class="container form-control mt-5">
+    <h3>Profile</h3>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>PFP:</label>
-        <img src="@_company.ProfilePicture"/>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@_company.ProfilePicture" class="img-fluid" alt="Company Profile Picture" />
+        </div>
+        <div class="col-md-6">
+            <label>Info:</label>
+            <p>@_company.Info</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>Email:</label>
-        <p>@_company.ContactCompany.Email</p>
-    </div>
-</div>
 
-<div class="row">
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>Website:</label>
+            <a target="_blank" href="@_company.Website">@_company.Name</a>
+        </div>
     <div class="col-md-6">
         <label>Name:</label>
         <p>@_company.Name</p>
     </div>
-    <div class="col-md-6">
-        <label>Info:</label>
-        <p>@_company.Info</p>
-    </div>
-</div>
+    <div class="row">
 
-<div class="row">
-    <div class="col-md-6">
-        <label>Website:</label>
-        <a target="_blank" href="@_company.Website">@_company.Name</a>
+        <div class="col-md-6">
+            <label>Email:</label>
+            <p>@_company.ContactCompany.Email</p>
+        </div>
+        <div class="col-md-6">
+            <label>City:</label>
+            <p>@_company.ContactCompany.City</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>City:</label>
-        <p>@_company.ContactCompany.City</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>Postal:</label>
-        <p>@_company.ContactCompany.Postal</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Postal:</label>
+            <p>@_company.ContactCompany.Postal</p>
+        </div>
+        <div class="col-md-6">
+            <label>Phone:</label>
+            <p>@_company.ContactCompany.Phone</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>Phone:</label>
-        <p>@_company.ContactCompany.Phone</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>Country:</label>
-        <p>@_company.ContactCompany.Country</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Country:</label>
+            <p>@_company.ContactCompany.Country</p>
+        </div>
+        <div class="col-md-6">
+            <label>Address:</label>
+            <p>@_company.ContactCompany.Address</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>Address:</label>
-        <p>@_company.ContactCompany.Address</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>IC:</label>
-        <p>@_company.ContactCompany.IC</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>IC:</label>
+            <p>@_company.ContactCompany.IC</p>
+        </div>
+        <div class="col-md-6">
+            <label>DIC:</label>
+            <p>@_company.ContactCompany.DIC</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>DIC:</label>
-        <p>@_company.ContactCompany.DIC</p>
-    </div>
-</div>
 
-<iframe src="@($"https://www.google.com/maps?q={_company.ContactCompany.Address} {_company.ContactCompany.Postal} {_company.ContactCompany.City}&output=embed")"></iframe>
-<button type="submit" @onclick="OnClick" class="w-100 btn btn-lg btn-primary">Update your company profile</button>
+    <iframe src="@($"https://www.google.com/maps?q={_company.ContactCompany.Address} {_company.ContactCompany.Postal} {_company.ContactCompany.City}&output=embed")" class="mb-3" height="300" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-<h2>Admin info</h2>
+    <button type="submit" @onclick="OnClick" class="w-100 btn btn-lg btn-primary">Update your company profile</button>
+    </div>
+    <div class="container form-control mt-5">
+    <h2>Admin info</h2>
 
-<h3>Profile</h3>
+        <h3>Profile</h3>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>Name:</label>
-        <p>@_company.Admin.Name</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Name:</label>
+            <p>@_company.Admin.Name</p>
+        </div>
+        <div class="col-md-6">
+            <label>Surname:</label>
+            <p>@_company.Admin.Surname</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>Surname:</label>
-        <p>@_company.Admin.Surname</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>Email:</label>
-        <p>@_company.Admin.Contact.Email</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Email:</label>
+            <p>@_company.Admin.Contact.Email</p>
+        </div>
+        <div class="col-md-6">
+            <label>Username:</label>
+            <p>@_company.Admin.UserName</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>Username:</label>
-        <p>@_company.Admin.UserName</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>Maximalni dosazene vzdelani:</label>
-        <p>@_company.Admin.Education.MaxEduLevelId</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Maximalni dosazene vzdelani:</label>
+            <p>@_company.Admin.Education.MaxEduLevelId</p>
+        </div>
+        <div class="col-md-6">
+            <label>City:</label>
+            <p>@_company.Admin.Contact.City</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>City:</label>
-        <p>@_company.Admin.Contact.City</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>Postal:</label>
-        <p>@_company.Admin.Contact.Postal</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Postal:</label>
+            <p>@_company.Admin.Contact.Postal</p>
+        </div>
+        <div class="col-md-6">
+            <label>Phone:</label>
+            <p>@_company.Admin.Contact.Phone</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>Phone:</label>
-        <p>@_company.Admin.Contact.Phone</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>Country:</label>
-        <p>@_company.Admin.Contact.Country</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Country:</label>
+            <p>@_company.Admin.Contact.Country</p>
+        </div>
+        <div class="col-md-6">
+            <label>Address:</label>
+            <p>@_company.Admin.Contact.Address</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>Address:</label>
-        <p>@_company.Admin.Contact.Address</p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <label>SchoolName:</label>
+            <p>@_company.Admin.Education.SchoolName</p>
+        </div>
+        <div class="col-md-6">
+            <label>SchoolAddress:</label>
+            <p>@_company.Admin.Education.SchoolAddress</p>
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>SchoolName:</label>
-        <p>@_company.Admin.Education.SchoolName</p>
+    <div class="row">
+        <div class="col-md-6">
+            <label>GraduationDate:</label>
+            <p>@_company.Admin.Education.GraduationDate</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <label>SchoolAddress:</label>
-        <p>@_company.Admin.Education.SchoolAddress</p>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <label>GraduationDate:</label>
-        <p>@_company.Admin.Education.GraduationDate</p>
-    </div>
-</div>
+    <button type="submit" @onclick="OnClickAdmin" class="w-100 btn btn-lg btn-primary">Update your admin profile</button>
 
-<button type="submit" @onclick="OnClickAdmin" class="w-100 btn btn-lg btn-primary">Update your admin profile</button>
-
-
-<iframe src="@($"https://www.google.com/maps?q={@_company.Admin.Contact.Address} {@_company.Admin.Contact.Postal} {@_company.Admin.Contact.City}&output=embed")"></iframe>
+    <iframe src="@($"https://www.google.com/maps?q={@_company.Admin.Contact.Address} {@_company.Admin.Contact.Postal} {@_company.Admin.Contact.City}&output=embed")" class="mb-3" height="300" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div></div>
 @inject NavigationManager NavigationManager
 @code {
     [Parameter] public CompanyReal _company { get; set; }

@@ -10,15 +10,15 @@
 {
     <div>
         <div>@i.User.Name @i.User.Surname</div>
-        <button @onclick="() => DownloadCV(i.User.Id)">Download CV for user @i.User.Name</button>
+        <button class="btn-dark" @onclick="() => DownloadCV(i.User.Id)"> <span class="oi oi-document"></span>Download CV for user @i.User.Name</button>
     
     </div>
 }
 
 
 <h3>ExportCandidates</h3>
-<button @onclick="OnExportToExcel">Export data to Excel</button>
-<button @onclick="OnExportToPDF">Export data to PDF</button>
+<button class="btn-success " @onclick="OnExportToExcel"> <span class="oi oi-spreadsheet"></span>Export data to Excel</button>
+<button class="btn-danger " @onclick="OnExportToPDF"><span class="oi oi-paperclip"></span>Export data to PDF</button>
 
 @inject ApiService _service
 @inject ExportToExcel _excel
@@ -51,9 +51,6 @@
             _offer = _service.GetOffers().Where(x => x.Id == _realOfferId).FirstOrDefault();
             _company = _service.GetCompanyByCompanyId(_offer.CompanyId);
             _jobOffers = _service.GetOffersInUsers(_offer.Id).ToList();
-            //_jobFields = _service.GetJobFields().ToList();
-            // var useros = _service.GetUserByName(mail);
-            // _user = useros;
         }
         else
         {
@@ -82,7 +79,6 @@
     }
     private void OnExportToExcel()
     {
-        //_excel.ExportAllUsers(_service, companyName);
         _excel.ExportAllCandiates(_jobOffers, _company.Name);
     }
     private void OnExportToPDF()

@@ -11,7 +11,7 @@
         <div> @item.Title </div>
         <div> @item.Language </div>
         <div> @item.Added </div>
-        <button @onclick="(() => OnSelect(item))">More information</button>
+        <button class="btn-success" @onclick="(() => OnSelect(item))">More information</button>
     }
 </div>
 
@@ -38,18 +38,10 @@
         _jobOffers = _service.GetOffers().Where(x => x.CompanyId == _company.Id).ToList();
         _jobFields = _service.GetJobFields().ToList();
         _filteredJobOffers = new List<JobOffer>();
-        // if (user.Identity != null && user.Identity.IsAuthenticated)
-        // {
-        // }
-        // else
-        // {
-
-        // }
 
     }
     private void OnSelect(JobOffer _selected)
     {
-        //string modelos = System.Text.Json.JsonSerializer.Serialize(_selected);
         NavigationManager.NavigateTo($"/exportcandiates/{_selected.Id.ToString()}");
     }
 

@@ -1,5 +1,30 @@
 ﻿@page "/"
+@using RobotaNearMe.Client.Services
 
 <PageTitle>Robota near me home</PageTitle>
 
 <h1>Robota Near me</h1>
+
+<p><strong>@_quote</strong></p>
+<p>@_author</p>
+<img src="@_linkfox" width="300px" height="200" />
+<img src="@_linkdoggo" width="300px" height="200"/>
+
+@inject ExternalApiService _service;
+@code {
+    private string _linkfox;
+    private string _linkdoggo;
+    private string _quote;
+    private string _author;
+    protected override async Task OnInitializedAsync()
+    {
+        var data = await _service.GetQuote();
+        var data2 = await _service.GetFox();
+        var data3 = await _service.GetDoggo();
+        _quote = data.quote;
+        _author = data.author;
+        _linkfox = data2.image;
+        _linkdoggo = data3.url;
+
+    }
+}

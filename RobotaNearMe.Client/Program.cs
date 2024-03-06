@@ -26,6 +26,7 @@ builder.Services.AddScoped<ApiService>();
 builder.Services.AddScoped<ExportToPDF>();
 builder.Services.AddScoped<ExportToExcel>();
 builder.Services.AddScoped<MailService>();
+builder.Services.AddScoped<ExternalApiService>();
 var configuration = builder.Configuration;
 
 builder.Services.AddAuthentication().AddGoogle(googleOptions =>

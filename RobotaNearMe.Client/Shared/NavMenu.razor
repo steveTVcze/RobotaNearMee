@@ -1,6 +1,6 @@
 ﻿<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">RobotaNearMe.Client</a>
+        <a class="navbar-brand" href="/"><span class="oi oi-terminal"></span>RobotaNearMe</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -10,26 +10,26 @@
 <AuthorizeView Roles="User">
     <Authorized>
 
-        <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+        <div class="@NavMenuCssClass nav-tabs" @onclick="ToggleNavMenu">
             <nav class="flex-column">
-                <div class="nav-item px-3">
+                <div class="nav-item px-6">
                     <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                         <span class="oi oi-home" aria-hidden="true"></span> Home
                     </NavLink>
                 </div>
-                <div class="nav-item px-3">
+                <div class="nav-item px-2">
                     <NavLink class="nav-link" href="profile">
-                        <span class="oi oi-plus" aria-hidden="true"></span> Profile
+                        <span class="oi oi-person" aria-hidden="true"></span> Profile
                     </NavLink>
                 </div>
-                <div class="nav-item px-3">
+                <div class="nav-item px-2">
                     <NavLink class="nav-link" href="jobs">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Jobs
+                        <span class="oi oi-briefcase" aria-hidden="true"></span> Jobs
                     </NavLink>
                 </div>
-                <div class="nav-item px-3">
+                <div class="nav-item px-2">
                     <NavLink class="nav-link" href="addcompany">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> AddCompany
+                        <span class="oi oi-plus" aria-hidden="true"></span> AddCompany
                     </NavLink>
                 </div>
                
@@ -40,7 +40,7 @@
 <AuthorizeView Roles="Admin">
     <Authorized>
 
-        <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+        <div class="@NavMenuCssClass nav-tabs" @onclick="ToggleNavMenu">
             <nav class="flex-column">
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
@@ -49,27 +49,27 @@
                 </div>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="mailsomeone">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Mail someone
+                        <span class="oi oi-chat" aria-hidden="true"></span> Mail someone
                     </NavLink>
                 </div>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="companyalloffers">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Export candidates
+                        <span class="oi oi-cloud-download" aria-hidden="true"></span> Export candidates
                     </NavLink>
                 </div>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="addjoboffer">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Add job offer
+                        <span class="oi oi-collapse-up" aria-hidden="true"></span> Add job offer
                     </NavLink>
                 </div>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="updatejoboffer">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Update job offer
+                        <span class="oi oi-cloud-upload" aria-hidden="true"></span> Update job offer
                     </NavLink>
                 </div>
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="companyprofile">
-                        <span class="oi oi-list-rich" aria-hidden="true"></span> Company profile
+                        <span class="oi oi-cog" aria-hidden="true"></span> Company profile
                     </NavLink>
                 </div>
             </nav>

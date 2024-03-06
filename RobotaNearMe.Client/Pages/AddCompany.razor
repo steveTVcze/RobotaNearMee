@@ -6,62 +6,53 @@
 <h3>Add company</h3>
 
 <form @onsubmit="OnSubmit">
-    <div class="top-controls card" style="color:black">
-        <div>This move will remove you from the role User and add you to role Admin. From now on, you wont be able to see job offers. </div>
-        <div class="card-header">
-            <label>
-                Add company
-            </label>
-        </div>
-        <div class="card-body" style="display:flex; flex-direction:column;">
-            <div class="form-floating mb-3">
-                <input required @bind="_company.Name" class="form-control" placeholder="Please enter your ic." />
-                <label class="form-label">Company name</label>
-                <span class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input required @bind="_company.Website" class="form-control" placeholder="Please enter your ic." />
-                <label class="form-label">company website</label>
-                <span class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <textarea @bind="_company.Info" style="height: 150px;" class="form-control" placeholder="Please enter your ic."></textarea>
-                <label class="form-label">Company info</label>
-                <span class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input required @bind="_company.ProfilePicture" class="form-control" placeholder="Please enter your ic." />
-                <label class="form-label">Company profile picture</label>
-                <span class="text-danger"></span>
-            </div>
-            <div class="form-floating mb-3">
-                <input required @bind="_company.Founded" class="form-control"  placeholder="Please enter your ic." />
-                <label class="form-label">Founded in:</label>
-                <span class="text-danger"></span>
-            </div>
+    <div class="container mt-5">
+        <div class="card text-dark">
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    This move will remove you from the role User and add you to role Admin. From now on, you won't be able to see job offers.
+                </div>
+                <div class="card-header">
+                    <label class="h5">Add company</label>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="companyName">Company name</label>
+                        <input required @bind="_company.Name" id="companyName" class="form-control" placeholder="Enter company name" />
+                        <span class="text-danger"></span>
+                    </div>
 
-            
+                    <div class="form-group">
+                        <label for="companyWebsite">Company website</label>
+                        <input required @bind="_company.Website" id="companyWebsite" class="form-control" placeholder="Enter company website" />
+                        <span class="text-danger"></span>
+                    </div>
 
-           <RobotaNearMe.Client.Components.ContactComponent Contact="Contact"></RobotaNearMe.Client.Components.ContactComponent>
-            
-            @* <select @bind="_jobFieldId" class="form-control">
-                @if (_jobFields != null)
-                {
-                    @foreach (var field in _jobFields)
-                    {
-                        <option value="@field.Id">@field.Field</option>
-                    }
-                }
-            </select>
-            <select @bind="_locationId" class="form-control">
-                @foreach (LocationRegion region in Enum.GetValues(typeof(LocationRegion)))
-                {
-                    <option value="@((int)region)">@region.ToString()</option>
-                }
-            </select> *@
-        </div>
-        <div class="card-footer">
-            <button class="btn-success" type="submit"> Add company </button>
+                    <div class="form-group">
+                        <label for="companyInfo">Company info</label>
+                        <textarea @bind="_company.Info" id="companyInfo" style="height: 150px;" class="form-control" placeholder="Enter company info"></textarea>
+                        <span class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyProfilePicture">Company profile picture</label>
+                        <input required @bind="_company.ProfilePicture" id="companyProfilePicture" class="form-control" placeholder="Enter company profile picture" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="companyFounded">Founded in:</label>
+                        <input required @bind="_company.Founded" id="companyFounded" class="form-control" placeholder="Enter founded year" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                    <RobotaNearMe.Client.Components.ContactComponent Contact="Contact"></RobotaNearMe.Client.Components.ContactComponent>
+
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-success" type="submit">Add company</button>
+                </div>
+            </div>
         </div>
     </div>
 </form>
@@ -94,8 +85,6 @@
             _jobFields = _service.GetJobFields().ToList();
             var useros = _service.GetUserByName(mail);
             Admin = useros;
-            //var company = _service.GetCompanyById(useros.Id);
-            //company = _company;
         }
         else
         {
@@ -107,15 +96,6 @@
     {
         if (_company != null)
         {
-            // JobOffer jo = new();
-            // jo.Added = DateTime.UtcNow;
-            // jo.LastUpdated = DateTime.UtcNow;
-            // jo.Title = _title;
-            // jo.StillValid = true;
-            // jo.CompanyId = _company.Id;
-            // jo.Description = _description;
-            // jo.JobFieldId = _jobFieldId;
-            // jo.LocationId = (LocationRegion)_locationId;
 
             var s = Contact;
             s.Id = Guid.NewGuid();
@@ -130,7 +110,6 @@
             _service.PostCompany(c);
             
         }
-        //List<JobOffer> newOffers = _jobOffers.Where(x => x.JobFieldId == _jobFieldId).ToList();
     }
 
 }

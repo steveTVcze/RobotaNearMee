@@ -8,9 +8,13 @@
 <h1>Welcome @_client.Name @_client.Surname</h1>
 <RobotaNearMe.Client.Components.ProfileComponent User="_client" ></RobotaNearMe.Client.Components.ProfileComponent>
 
-<InputFile OnChange="LoadFiles" />
+<div class="form-control">
+    <h3>CV: </h3>
 
-<button @onclick="DownloadFile"> Download files</button>
+    <InputFile OnChange="LoadFiles" />
+
+    <button @onclick="DownloadFile"> Download files</button>
+</div>
 
 @inject ApiService _service
 @code {

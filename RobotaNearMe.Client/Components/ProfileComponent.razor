@@ -1,6 +1,8 @@
 ﻿@using RobotaNearMe.Lib.Modelos
 
 <h3>Profile</h3>
+<div class="form-control">
+
 
 <div class="row">
     <div class="col-md-6">
@@ -79,9 +81,10 @@
     </div>
 </div>
 
+<iframe src="@($"https://www.google.com/maps?q={User.Contact.Address} {User.Contact.Postal} {User.Contact.City}&output=embed")"></iframe>
 <button type="submit" @onclick="OnUpdate" class="w-100 btn btn-lg btn-primary">Update your profile</button>
 
-<iframe src="@($"https://www.google.com/maps?q={User.Contact.Address} {User.Contact.Postal} {User.Contact.City}&output=embed")"></iframe>
+</div>
 @inject NavigationManager NavigationManager
 
 @code {

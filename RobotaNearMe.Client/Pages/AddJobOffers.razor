@@ -103,7 +103,6 @@
     {
         if (_company != null)
         {
-            //JobOffer jo = new();
             JobOffer.Added = DateTime.UtcNow;
             JobOffer.LastUpdated = DateTime.UtcNow;
             JobOffer.LocationId = (LocationRegion)_selectedLocation;
@@ -114,7 +113,6 @@
             JobOffer.IntrestedInIt = 0;
             _service.PostJobOffer(JobOffer);
         }
-        //List<JobOffer> newOffers = _jobOffers.Where(x => x.JobFieldId == _jobFieldId).ToList();
     }
 
 }
